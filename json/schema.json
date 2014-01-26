@@ -1,0 +1,29 @@
+human: {
+  "fullname": {
+    "initials": "ObjectId",
+    "first_name": "string",
+    "middle_name": "string",
+    "last_name": "string"
+  },
+  "email": {
+    "main": ["string"],
+    "personal": ["string"],
+    "work": ["string"]
+  },
+  "mobile": {
+    "main": ["string"],
+    "personal": ["string"],
+    "work": ["string"]
+    },
+  "service": [
+    {
+      "date_of_entry": "date",
+      "service": "ObjectId",
+      "currency": "ObjectId",
+      "cost": "currency"            
+    }
+  ],
+  "city": "ObjectId",
+  "date_of_birth": "date",
+  "type": "ObjectId"
+}

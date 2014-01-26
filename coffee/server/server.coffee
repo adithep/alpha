@@ -1,0 +1,71 @@
+_ = lodash
+
+class Json_Doc
+  constructor: (@id) ->
+    @id = {}
+  
+  insert_schema: (json) ->
+    json = json + ".json"
+    schema = EJSON.parse(Assets.getText(json))
+    index = 0
+    while index < schema.length
+      if schema[index].schema
+        schema[index] = re.case_obj_s(schema[index], @id)
+      @id[schema[index].document_name] = DATA.insert(schema[index])
+      index++
+    console.log "#{json} inserted"
+    return
+
+  insert_json: (json, schema) ->
+    json = json + ".json"
+    json_obj = EJSON.parse(Assets.getText(json))
+    index = 0
+    schema = DATA.findOne(_id: @id[schema])
+    while index < json_obj.length
+      a = re.case_switch(schema.schema, json_obj[index])
+      DATA.insert(a)
+      index++
+      
+    console.log "#{json} inserted"
+    return
+
+  get_schema_id: (doc_name) ->
+    if Object.keys(@id).length is 0
+      DATA.find(document_schema: "document_schema").forEach (doc) =>
+        @id[doc.document_name] = doc._id
+        return
+    if @id[doc_name]
+      @id[doc_name]
+    else
+      console.warn("no schema #{doc_name} in database")
+  
+DATA.after.insert (userid, doc) ->
+  if doc.document_schema isnt "document_schema"
+    a = re.case_switch_o(doc)
+    _.extend(a, {_id: this._id})
+    ADATA.upsert({_id: this._id}, a)
+    console.log "#{doc.document_name} inserted"
+
+
+Meteor.startup ->
+
+  document_json = new Json_Doc()
+
+  if DATA.find(document_schema: "document_schema").count() is 0
+    DATA.remove({})
+
+  if DATA.find().count() is 0
+    document_json.insert_schema('schema_array')
+
+  if DATA.find(document_schema: document_json.get_schema_id('currencies')).count() is 0
+    document_json.insert_json('currencies', 'currencies')
+
+  if DATA.find(document_schema: document_json.get_schema_id('countries')).count() is 0
+    document_json.insert_json('countries', 'countries')
+
+  if DATA.find(document_schema: document_json.get_schema_id('titles')).count() is 0
+    document_json.insert_json('titles', 'titles')
+
+  if DATA.find(document_schema: document_json.get_schema_id('services')).count() is 0
+    document_json.insert_json('services', 'services')
+

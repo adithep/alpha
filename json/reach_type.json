@@ -1,0 +1,14 @@
+[
+  {
+    "name": "main",
+    "type": "reach_type"
+  },
+  {
+    "name": "personal",
+    "type": "reach_type"
+  },
+  {
+    "name": "work",
+    "type": "reach_type"
+  }
+]

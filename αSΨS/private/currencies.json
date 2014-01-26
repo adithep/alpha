@@ -1,0 +1,1757 @@
+[
+  {
+    "document_name": "RUB",
+    "name": "RUB",
+    "usd_exchange_rate": 33.0652,
+    "document_schema": "currencies",
+    "country_name": [
+      "Russia"
+    ],
+    "symbol": "RUB",
+    "symbol_native": "руб.",
+    "currency_name": "Russian Ruble",
+    "currency_code": "RUB",
+    "currency_name_plural": "Russian rubles"
+  },
+  {
+    "document_name": "RWF",
+    "name": "RWF",
+    "usd_exchange_rate": 677.54162,
+    "document_schema": "currencies",
+    "country_name": [
+      "Rwanda"
+    ],
+    "symbol": "RWF",
+    "symbol_native": "FR",
+    "currency_name": "Rwandan Franc",
+    "currency_code": "RWF",
+    "currency_name_plural": "Rwandan francs"
+  },
+  {
+    "document_name": "SAR",
+    "name": "SAR",
+    "usd_exchange_rate": 3.750547,
+    "document_schema": "currencies",
+    "country_name": [
+      "Saudi Arabia"
+    ],
+    "symbol": "SR",
+    "symbol_native": "ر.س.‏",
+    "currency_name": "Saudi Riyal",
+    "currency_code": "SAR",
+    "currency_name_plural": "Saudi riyals"
+  },
+  {
+    "document_name": "SDG",
+    "name": "SDG",
+    "usd_exchange_rate": 5.701133,
+    "document_schema": "currencies",
+    "country_name": [
+      "Sudan"
+    ],
+    "symbol": "SDG",
+    "symbol_native": "SDG",
+    "currency_name": "Sudanese Pound",
+    "currency_code": "SDG",
+    "currency_name_plural": "Sudanese pounds"
+  },
+  {
+    "document_name": "SEK",
+    "name": "SEK",
+    "usd_exchange_rate": 6.506099,
+    "document_schema": "currencies",
+    "country_name": [
+      "Sweden"
+    ],
+    "symbol": "Skr",
+    "symbol_native": "kr",
+    "currency_name": "Swedish Krona",
+    "currency_code": "SEK",
+    "currency_name_plural": "Swedish kronor"
+  },
+  {
+    "document_name": "SGD",
+    "name": "SGD",
+    "usd_exchange_rate": 1.266613,
+    "document_schema": "currencies",
+    "country_name": [
+      "Singapore"
+    ],
+    "symbol": "S$",
+    "symbol_native": "$",
+    "currency_name": "Singapore Dollar",
+    "currency_code": "SGD",
+    "currency_name_plural": "Singapore dollars"
+  },
+  {
+    "document_name": "USD",
+    "name": "USD",
+    "usd_exchange_rate": 1,
+    "document_schema": "currencies",
+    "country_name": [
+      "American Samoa",
+      "Bonaire",
+      "British Indian Ocean Territory",
+      "British Virgin Islands",
+      "Ecuador",
+      "El Salvador",
+      "Guam",
+      "Haiti",
+      "Marshall Islands",
+      "Micronesia",
+      "Northern Mariana Islands",
+      "Palau",
+      "Panama",
+      "Puerto Rico",
+      "Timor-Leste",
+      "Turks and Caicos Islands",
+      "United States",
+      "United States Minor Outlying Islands",
+      "United States Virgin Islands"
+    ],
+    "symbol": "$",
+    "symbol_native": "$",
+    "currency_name": "US Dollar",
+    "currency_code": "USD",
+    "currency_name_plural": "US dollars"
+  },
+  {
+    "document_name": "CAD",
+    "name": "CAD",
+    "usd_exchange_rate": 1.088542,
+    "document_schema": "currencies",
+    "country_name": [
+      "Canada"
+    ],
+    "symbol": "CA$",
+    "symbol_native": "$",
+    "currency_name": "Canadian Dollar",
+    "currency_code": "CAD",
+    "currency_name_plural": "Canadian dollars"
+  },
+  {
+    "document_name": "EUR",
+    "name": "EUR",
+    "usd_exchange_rate": 0.731693,
+    "document_schema": "currencies",
+    "country_name": [
+      "Åland Islands",
+      "Andorra",
+      "Austria",
+      "Belgium",
+      "Cyprus",
+      "Estonia",
+      "Finland",
+      "France",
+      "French Guiana",
+      "French Southern and Antarctic Lands",
+      "Germany",
+      "Greece",
+      "Guadeloupe",
+      "Vatican City",
+      "Ireland",
+      "Italy",
+      "Luxembourg",
+      "Malta",
+      "Martinique",
+      "Mayotte",
+      "Monaco",
+      "Montenegro",
+      "Netherlands",
+      "Portugal",
+      "Republic of Kosovo",
+      "Réunion",
+      "Saint Barthélemy",
+      "Saint Martin",
+      "Saint Pierre and Miquelon",
+      "San Marino",
+      "Slovakia",
+      "Slovenia",
+      "Spain"
+    ],
+    "symbol": "€",
+    "symbol_native": "€",
+    "currency_name": "Euro",
+    "currency_code": "EUR",
+    "currency_name_plural": "euros"
+  },
+  {
+    "document_name": "AED",
+    "name": "AED",
+    "usd_exchange_rate": 3.672874,
+    "document_schema": "currencies",
+    "country_name": [
+      "United Arab Emirates"
+    ],
+    "symbol": "AED",
+    "symbol_native": "د.إ.‏",
+    "currency_name": "United Arab Emirates Dirham",
+    "currency_code": "AED",
+    "currency_name_plural": "UAE dirhams"
+  },
+  {
+    "document_name": "AFN",
+    "name": "AFN",
+    "usd_exchange_rate": 55.8508,
+    "document_schema": "currencies",
+    "country_name": [
+      "Afghanistan"
+    ],
+    "symbol": "Af",
+    "symbol_native": "؋",
+    "currency_name": "Afghan Afghani",
+    "currency_code": "AFN",
+    "currency_name_plural": "Afghan Afghanis"
+  },
+  {
+    "document_name": "ALL",
+    "name": "ALL",
+    "usd_exchange_rate": 103.1459,
+    "document_schema": "currencies",
+    "country_name": [
+      "Albania"
+    ],
+    "symbol": "ALL",
+    "symbol_native": "Lek",
+    "currency_name": "Albanian Lek",
+    "currency_code": "ALL",
+    "currency_name_plural": "Albanian lekë"
+  },
+  {
+    "document_name": "AMD",
+    "name": "AMD",
+    "usd_exchange_rate": 406.167503,
+    "document_schema": "currencies",
+    "country_name": [
+      "Armenia"
+    ],
+    "symbol": "AMD",
+    "symbol_native": "դր.",
+    "currency_name": "Armenian Dram",
+    "currency_code": "AMD",
+    "currency_name_plural": "Armenian drams"
+  },
+  {
+    "document_name": "ARS",
+    "name": "ARS",
+    "usd_exchange_rate": 6.649165,
+    "document_schema": "currencies",
+    "country_name": [
+      "Argentina"
+    ],
+    "symbol": "AR$",
+    "symbol_native": "$",
+    "currency_name": "Argentine Peso",
+    "currency_code": "ARS",
+    "currency_name_plural": "Argentine pesos"
+  },
+  {
+    "document_name": "AUD",
+    "name": "AUD",
+    "usd_exchange_rate": 1.1124,
+    "document_schema": "currencies",
+    "country_name": [
+      "Australia",
+      "Christmas Island",
+      "Cocos (Keeling) Islands",
+      "Heard Island and McDonald Islands",
+      "Kiribati",
+      "Nauru",
+      "Norfolk Island",
+      "Tuvalu"
+    ],
+    "symbol": "AU$",
+    "symbol_native": "$",
+    "currency_name": "Australian Dollar",
+    "currency_code": "AUD",
+    "currency_name_plural": "Australian dollars"
+  },
+  {
+    "document_name": "AZN",
+    "name": "AZN",
+    "usd_exchange_rate": 0.784233,
+    "document_schema": "currencies",
+    "country_name": [
+      "Azerbaijan"
+    ],
+    "symbol": "man.",
+    "symbol_native": "ман.",
+    "currency_name": "Azerbaijani Manat",
+    "currency_code": "AZN",
+    "currency_name_plural": "Azerbaijani manats"
+  },
+  {
+    "document_name": "BAM",
+    "name": "BAM",
+    "usd_exchange_rate": 1.433938,
+    "document_schema": "currencies",
+    "country_name": [
+      "Bosnia and Herzegovina"
+    ],
+    "symbol": "KM",
+    "symbol_native": "KM",
+    "currency_name": "Bosnia-Herzegovina Convertible Mark",
+    "currency_code": "BAM",
+    "currency_name_plural": "Bosnia-Herzegovina convertible marks"
+  },
+  {
+    "document_name": "BDT",
+    "name": "BDT",
+    "usd_exchange_rate": 77.636109,
+    "document_schema": "currencies",
+    "country_name": [
+      "Bangladesh"
+    ],
+    "symbol": "Tk",
+    "symbol_native": "৳",
+    "currency_name": "Bangladeshi Taka",
+    "currency_code": "BDT",
+    "currency_name_plural": "Bangladeshi takas"
+  },
+  {
+    "document_name": "BGN",
+    "name": "BGN",
+    "usd_exchange_rate": 1.43583,
+    "document_schema": "currencies",
+    "country_name": [
+      "Bulgaria"
+    ],
+    "symbol": "BGN",
+    "symbol_native": "лв.",
+    "currency_name": "Bulgarian Lev",
+    "currency_code": "BGN",
+    "currency_name_plural": "Bulgarian leva"
+  },
+  {
+    "document_name": "BHD",
+    "name": "BHD",
+    "usd_exchange_rate": 0.377005,
+    "document_schema": "currencies",
+    "country_name": [
+      "Bahrain"
+    ],
+    "symbol": "BD",
+    "symbol_native": "د.ب.‏",
+    "currency_name": "Bahraini Dinar",
+    "currency_code": "BHD",
+    "currency_name_plural": "Bahraini dinars"
+  },
+  {
+    "document_name": "BIF",
+    "name": "BIF",
+    "usd_exchange_rate": 1545.2334,
+    "document_schema": "currencies",
+    "country_name": [
+      "Burundi"
+    ],
+    "symbol": "FBu",
+    "symbol_native": "FBu",
+    "currency_name": "Burundian Franc",
+    "currency_code": "BIF",
+    "currency_name_plural": "Burundian francs"
+  },
+  {
+    "document_name": "BND",
+    "name": "BND",
+    "usd_exchange_rate": 1.266997,
+    "document_schema": "currencies",
+    "country_name": [
+      "Brunei"
+    ],
+    "symbol": "BN$",
+    "symbol_native": "$",
+    "currency_name": "Brunei Dollar",
+    "currency_code": "BND",
+    "currency_name_plural": "Brunei dollars"
+  },
+  {
+    "document_name": "BOB",
+    "name": "BOB",
+    "usd_exchange_rate": 6.902889,
+    "document_schema": "currencies",
+    "country_name": [
+      "Bolivia"
+    ],
+    "symbol": "Bs",
+    "symbol_native": "Bs",
+    "currency_name": "Bolivian Boliviano",
+    "currency_code": "BOB",
+    "currency_name_plural": "Bolivian bolivianos"
+  },
+  {
+    "document_name": "BRL",
+    "name": "BRL",
+    "usd_exchange_rate": 2.371527,
+    "document_schema": "currencies",
+    "country_name": [
+      "Brazil"
+    ],
+    "symbol": "R$",
+    "symbol_native": "R$",
+    "currency_name": "Brazilian Real",
+    "currency_code": "BRL",
+    "currency_name_plural": "Brazilian reals"
+  },
+  {
+    "document_name": "BWP",
+    "name": "BWP",
+    "usd_exchange_rate": 8.88681,
+    "document_schema": "currencies",
+    "country_name": [
+      "Botswana"
+    ],
+    "symbol": "BWP",
+    "symbol_native": "P",
+    "currency_name": "Botswanan Pula",
+    "currency_code": "BWP",
+    "currency_name_plural": "Botswanan pulas"
+  },
+  {
+    "document_name": "BYR",
+    "name": "BYR",
+    "usd_exchange_rate": 9558.675,
+    "document_schema": "currencies",
+    "country_name": [
+      "Belarus"
+    ],
+    "symbol": "BYR",
+    "symbol_native": "BYR",
+    "currency_name": "Belarusian Ruble",
+    "currency_code": "BYR",
+    "currency_name_plural": "Belarusian rubles"
+  },
+  {
+    "document_name": "BZD",
+    "name": "BZD",
+    "usd_exchange_rate": 1.991986,
+    "document_schema": "currencies",
+    "country_name": [
+      "Belize"
+    ],
+    "symbol": "BZ$",
+    "symbol_native": "$",
+    "currency_name": "Belize Dollar",
+    "currency_code": "BZD",
+    "currency_name_plural": "Belize dollars"
+  },
+  {
+    "document_name": "CDF",
+    "name": "CDF",
+    "usd_exchange_rate": 921.528333,
+    "document_schema": "currencies",
+    "country_name": [
+      "Democratic Republic of the Congo"
+    ],
+    "symbol": "CDF",
+    "symbol_native": "FrCD",
+    "currency_name": "Congolese Franc",
+    "currency_code": "CDF",
+    "currency_name_plural": "Congolese francs"
+  },
+  {
+    "document_name": "CHF",
+    "name": "CHF",
+    "usd_exchange_rate": 0.904211,
+    "document_schema": "currencies",
+    "country_name": [
+      "Liechtenstein",
+      "Switzerland"
+    ],
+    "symbol": "CHF",
+    "symbol_native": "CHF",
+    "currency_name": "Swiss Franc",
+    "currency_code": "CHF",
+    "currency_name_plural": "Swiss francs"
+  },
+  {
+    "document_name": "CLP",
+    "name": "CLP",
+    "usd_exchange_rate": 530.436499,
+    "document_schema": "currencies",
+    "country_name": [
+      "Chile"
+    ],
+    "symbol": "CL$",
+    "symbol_native": "$",
+    "currency_name": "Chilean Peso",
+    "currency_code": "CLP",
+    "currency_name_plural": "Chilean pesos"
+  },
+  {
+    "document_name": "CNY",
+    "name": "CNY",
+    "usd_exchange_rate": 6.081475,
+    "document_schema": "currencies",
+    "country_name": [
+      "China"
+    ],
+    "symbol": "CN¥",
+    "symbol_native": "CN¥",
+    "currency_name": "Chinese Yuan",
+    "currency_code": "CNY",
+    "currency_name_plural": "Chinese yuan"
+  },
+  {
+    "document_name": "COP",
+    "name": "COP",
+    "usd_exchange_rate": 1929.725,
+    "document_schema": "currencies",
+    "country_name": [
+      "Colombia"
+    ],
+    "symbol": "CO$",
+    "symbol_native": "$",
+    "currency_name": "Colombian Peso",
+    "currency_code": "COP",
+    "currency_name_plural": "Colombian pesos"
+  },
+  {
+    "document_name": "CRC",
+    "name": "CRC",
+    "usd_exchange_rate": 499.9848,
+    "document_schema": "currencies",
+    "country_name": [
+      "Costa Rica"
+    ],
+    "symbol": "₡",
+    "symbol_native": "₡",
+    "currency_name": "Costa Rican Colón",
+    "currency_code": "CRC",
+    "currency_name_plural": "Costa Rican colóns"
+  },
+  {
+    "document_name": "CVE",
+    "name": "CVE",
+    "usd_exchange_rate": 80.749121,
+    "document_schema": "currencies",
+    "country_name": [
+      "Cape Verde"
+    ],
+    "symbol": "CV$",
+    "symbol_native": "CV$",
+    "currency_name": "Cape Verdean Escudo",
+    "currency_code": "CVE",
+    "currency_name_plural": "Cape Verdean escudos"
+  },
+  {
+    "document_name": "CZK",
+    "name": "CZK",
+    "usd_exchange_rate": 20.06638,
+    "document_schema": "currencies",
+    "country_name": [
+      "Czech Republic"
+    ],
+    "symbol": "Kč",
+    "symbol_native": "Kč",
+    "currency_name": "Czech Republic Koruna",
+    "currency_code": "CZK",
+    "currency_name_plural": "Czech Republic korunas"
+  },
+  {
+    "document_name": "DJF",
+    "name": "DJF",
+    "usd_exchange_rate": 177.864,
+    "document_schema": "currencies",
+    "country_name": [
+      "Djibouti"
+    ],
+    "symbol": "Fdj",
+    "symbol_native": "Fdj",
+    "currency_name": "Djiboutian Franc",
+    "currency_code": "DJF",
+    "currency_name_plural": "Djiboutian francs"
+  },
+  {
+    "document_name": "DKK",
+    "name": "DKK",
+    "usd_exchange_rate": 5.465675,
+    "document_schema": "currencies",
+    "country_name": [
+      "Denmark",
+      "Faroe Islands",
+      "Greenland"
+    ],
+    "symbol": "Dkr",
+    "symbol_native": "kr",
+    "currency_name": "Danish Krone",
+    "currency_code": "DKK",
+    "currency_name_plural": "Danish kroner"
+  },
+  {
+    "document_name": "DOP",
+    "name": "DOP",
+    "usd_exchange_rate": 42.64528,
+    "document_schema": "currencies",
+    "country_name": [
+      "Dominican Republic"
+    ],
+    "symbol": "RD$",
+    "symbol_native": "RD$",
+    "currency_name": "Dominican Peso",
+    "currency_code": "DOP",
+    "currency_name_plural": "Dominican pesos"
+  },
+  {
+    "document_name": "DZD",
+    "name": "DZD",
+    "usd_exchange_rate": 78.616001,
+    "document_schema": "currencies",
+    "country_name": [
+      "Algeria",
+      "Western Sahara"
+    ],
+    "symbol": "DA",
+    "symbol_native": "د.ج.‏",
+    "currency_name": "Algerian Dinar",
+    "currency_code": "DZD",
+    "currency_name_plural": "Algerian dinars"
+  },
+  {
+    "document_name": "EGP",
+    "name": "EGP",
+    "usd_exchange_rate": 6.962025,
+    "document_schema": "currencies",
+    "country_name": [
+      "Egypt"
+    ],
+    "symbol": "EGP",
+    "symbol_native": "ج.م.‏",
+    "currency_name": "Egyptian Pound",
+    "currency_code": "EGP",
+    "currency_name_plural": "Egyptian pounds"
+  },
+  {
+    "document_name": "ERN",
+    "name": "ERN",
+    "usd_exchange_rate": 15.00265,
+    "document_schema": "currencies",
+    "country_name": [
+      "Eritrea"
+    ],
+    "symbol": "Nfk",
+    "symbol_native": "Nfk",
+    "currency_name": "Eritrean Nakfa",
+    "currency_code": "ERN",
+    "currency_name_plural": "Eritrean nakfas"
+  },
+  {
+    "document_name": "ETB",
+    "name": "ETB",
+    "usd_exchange_rate": 19.11121,
+    "document_schema": "currencies",
+    "country_name": [
+      "Ethiopia"
+    ],
+    "symbol": "Br",
+    "symbol_native": "Br",
+    "currency_name": "Ethiopian Birr",
+    "currency_code": "ETB",
+    "currency_name_plural": "Ethiopian birrs"
+  },
+  {
+    "document_name": "GBP",
+    "name": "GBP",
+    "usd_exchange_rate": 0.606905,
+    "document_schema": "currencies",
+    "country_name": [
+      "Guernsey",
+      "Isle of Man",
+      "Jersey",
+      "South Georgia",
+      "United Kingdom"
+    ],
+    "symbol": "£",
+    "symbol_native": "£",
+    "currency_name": "British Pound Sterling",
+    "currency_code": "GBP",
+    "currency_name_plural": "British pounds sterling"
+  },
+  {
+    "document_name": "GEL",
+    "name": "GEL",
+    "usd_exchange_rate": 1.75391,
+    "document_schema": "currencies",
+    "country_name": [
+      "Georgia"
+    ],
+    "symbol": "GEL",
+    "symbol_native": "GEL",
+    "currency_name": "Georgian Lari",
+    "currency_code": "GEL",
+    "currency_name_plural": "Georgian laris"
+  },
+  {
+    "document_name": "GHS",
+    "name": "GHS",
+    "usd_exchange_rate": 2.379864,
+    "document_schema": "currencies",
+    "country_name": [
+      "Ghana"
+    ],
+    "symbol": "GH₵",
+    "symbol_native": "GH₵",
+    "currency_name": "Ghanaian Cedi",
+    "currency_code": "GHS",
+    "currency_name_plural": "Ghanaian cedis"
+  },
+  {
+    "document_name": "GNF",
+    "name": "GNF",
+    "usd_exchange_rate": 6918.77,
+    "document_schema": "currencies",
+    "country_name": [
+      "Guinea"
+    ],
+    "symbol": "FG",
+    "symbol_native": "FG",
+    "currency_name": "Guinean Franc",
+    "currency_code": "GNF",
+    "currency_name_plural": "Guinean francs"
+  },
+  {
+    "document_name": "GTQ",
+    "name": "GTQ",
+    "usd_exchange_rate": 7.870087,
+    "document_schema": "currencies",
+    "country_name": [
+      "Guatemala"
+    ],
+    "symbol": "GTQ",
+    "symbol_native": "Q",
+    "currency_name": "Guatemalan Quetzal",
+    "currency_code": "GTQ",
+    "currency_name_plural": "Guatemalan quetzals"
+  },
+  {
+    "document_name": "HKD",
+    "name": "HKD",
+    "usd_exchange_rate": 7.754455,
+    "document_schema": "currencies",
+    "country_name": [
+      "Hong Kong"
+    ],
+    "symbol": "HK$",
+    "symbol_native": "$",
+    "currency_name": "Hong Kong Dollar",
+    "currency_code": "HKD",
+    "currency_name_plural": "Hong Kong dollars"
+  },
+  {
+    "document_name": "HNL",
+    "name": "HNL",
+    "usd_exchange_rate": 20.07852,
+    "document_schema": "currencies",
+    "country_name": [
+      "Honduras"
+    ],
+    "symbol": "HNL",
+    "symbol_native": "L",
+    "currency_name": "Honduran Lempira",
+    "currency_code": "HNL",
+    "currency_name_plural": "Honduran lempiras"
+  },
+  {
+    "document_name": "HRK",
+    "name": "HRK",
+    "usd_exchange_rate": 5.586558,
+    "document_schema": "currencies",
+    "country_name": [
+      "Croatia"
+    ],
+    "symbol": "kn",
+    "symbol_native": "kn",
+    "currency_name": "Croatian Kuna",
+    "currency_code": "HRK",
+    "currency_name_plural": "Croatian kunas"
+  },
+  {
+    "document_name": "HUF",
+    "name": "HUF",
+    "usd_exchange_rate": 218.852299,
+    "document_schema": "currencies",
+    "country_name": [
+      "Hungary"
+    ],
+    "symbol": "Ft",
+    "symbol_native": "Ft",
+    "currency_name": "Hungarian Forint",
+    "currency_code": "HUF",
+    "currency_name_plural": "Hungarian forints"
+  },
+  {
+    "document_name": "IDR",
+    "name": "IDR",
+    "usd_exchange_rate": 12125.816667,
+    "document_schema": "currencies",
+    "country_name": [
+      "Indonesia"
+    ],
+    "symbol": "Rp",
+    "symbol_native": "Rp",
+    "currency_name": "Indonesian Rupiah",
+    "currency_code": "IDR",
+    "currency_name_plural": "Indonesian rupiahs"
+  },
+  {
+    "document_name": "ILS",
+    "name": "ILS",
+    "usd_exchange_rate": 3.488479,
+    "document_schema": "currencies",
+    "country_name": [
+      "Israel",
+      "Palestine"
+    ],
+    "symbol": "₪",
+    "symbol_native": "₪",
+    "currency_name": "Israeli New Sheqel",
+    "currency_code": "ILS",
+    "currency_name_plural": "Israeli new sheqels"
+  },
+  {
+    "document_name": "INR",
+    "name": "INR",
+    "usd_exchange_rate": 61.7352,
+    "document_schema": "currencies",
+    "country_name": [
+      "Bhutan",
+      "India"
+    ],
+    "symbol": "Rs",
+    "symbol_native": "টকা",
+    "currency_name": "Indian Rupee",
+    "currency_code": "INR",
+    "currency_name_plural": "Indian rupees"
+  },
+  {
+    "document_name": "IQD",
+    "name": "IQD",
+    "usd_exchange_rate": 1170.348317,
+    "document_schema": "currencies",
+    "country_name": [
+      "Iraq"
+    ],
+    "symbol": "IQD",
+    "symbol_native": "د.ع.‏",
+    "currency_name": "Iraqi Dinar",
+    "currency_code": "IQD",
+    "currency_name_plural": "Iraqi dinars"
+  },
+  {
+    "document_name": "IRR",
+    "name": "IRR",
+    "usd_exchange_rate": 24566.0013,
+    "document_schema": "currencies",
+    "country_name": [
+      "Iran"
+    ],
+    "symbol": "IRR",
+    "symbol_native": "﷼",
+    "currency_name": "Iranian Rial",
+    "currency_code": "IRR",
+    "currency_name_plural": "Iranian rials"
+  },
+  {
+    "document_name": "ISK",
+    "name": "ISK",
+    "usd_exchange_rate": 116.552999,
+    "document_schema": "currencies",
+    "country_name": [
+      "Iceland"
+    ],
+    "symbol": "Ikr",
+    "symbol_native": "kr",
+    "currency_name": "Icelandic Króna",
+    "currency_code": "ISK",
+    "currency_name_plural": "Icelandic krónur"
+  },
+  {
+    "document_name": "JMD",
+    "name": "JMD",
+    "usd_exchange_rate": 106.124099,
+    "document_schema": "currencies",
+    "country_name": [
+      "Jamaica"
+    ],
+    "symbol": "J$",
+    "symbol_native": "$",
+    "currency_name": "Jamaican Dollar",
+    "currency_code": "JMD",
+    "currency_name_plural": "Jamaican dollars"
+  },
+  {
+    "document_name": "JOD",
+    "name": "JOD",
+    "usd_exchange_rate": 0.705725,
+    "document_schema": "currencies",
+    "country_name": [
+      "Jordan"
+    ],
+    "symbol": "JD",
+    "symbol_native": "د.أ.‏",
+    "currency_name": "Jordanian Dinar",
+    "currency_code": "JOD",
+    "currency_name_plural": "Jordanian dinars"
+  },
+  {
+    "document_name": "JPY",
+    "name": "JPY",
+    "usd_exchange_rate": 104.2406,
+    "document_schema": "currencies",
+    "country_name": [
+      "Japan"
+    ],
+    "symbol": "¥",
+    "symbol_native": "￥",
+    "currency_name": "Japanese Yen",
+    "currency_code": "JPY",
+    "currency_name_plural": "Japanese yen"
+  },
+  {
+    "document_name": "KES",
+    "name": "KES",
+    "usd_exchange_rate": 86.61054,
+    "document_schema": "currencies",
+    "country_name": [
+      "Kenya"
+    ],
+    "symbol": "Ksh",
+    "symbol_native": "Ksh",
+    "currency_name": "Kenyan Shilling",
+    "currency_code": "KES",
+    "currency_name_plural": "Kenyan shillings"
+  },
+  {
+    "document_name": "KHR",
+    "name": "KHR",
+    "usd_exchange_rate": 4002.351833,
+    "document_schema": "currencies",
+    "country_name": [
+      "Cambodia"
+    ],
+    "symbol": "KHR",
+    "symbol_native": "៛",
+    "currency_name": "Cambodian Riel",
+    "currency_code": "KHR",
+    "currency_name_plural": "Cambodian riels"
+  },
+  {
+    "document_name": "KMF",
+    "name": "KMF",
+    "usd_exchange_rate": 361.299052,
+    "document_schema": "currencies",
+    "country_name": [
+      "Comoros"
+    ],
+    "symbol": "CF",
+    "symbol_native": "FC",
+    "currency_name": "Comorian Franc",
+    "currency_code": "KMF",
+    "currency_name_plural": "Comorian francs"
+  },
+  {
+    "document_name": "KRW",
+    "name": "KRW",
+    "usd_exchange_rate": 1062.303317,
+    "document_schema": "currencies",
+    "country_name": [
+      "South Korea"
+    ],
+    "symbol": "₩",
+    "symbol_native": "₩",
+    "currency_name": "South Korean Won",
+    "currency_code": "KRW",
+    "currency_name_plural": "South Korean won"
+  },
+  {
+    "document_name": "KWD",
+    "name": "KWD",
+    "usd_exchange_rate": 0.28255,
+    "document_schema": "currencies",
+    "country_name": [
+      "Kuwait"
+    ],
+    "symbol": "KD",
+    "symbol_native": "د.ك.‏",
+    "currency_name": "Kuwaiti Dinar",
+    "currency_code": "KWD",
+    "currency_name_plural": "Kuwaiti dinars"
+  },
+  {
+    "document_name": "KZT",
+    "name": "KZT",
+    "usd_exchange_rate": 154.4753,
+    "document_schema": "currencies",
+    "country_name": [
+      "Kazakhstan"
+    ],
+    "symbol": "KZT",
+    "symbol_native": "тңг.",
+    "currency_name": "Kazakhstani Tenge",
+    "currency_code": "KZT",
+    "currency_name_plural": "Kazakhstani tenges"
+  },
+  {
+    "document_name": "LBP",
+    "name": "LBP",
+    "usd_exchange_rate": 1508.105,
+    "document_schema": "currencies",
+    "country_name": [
+      "Lebanon"
+    ],
+    "symbol": "LB£",
+    "symbol_native": "ل.ل.‏",
+    "currency_name": "Lebanese Pound",
+    "currency_code": "LBP",
+    "currency_name_plural": "Lebanese pounds"
+  },
+  {
+    "document_name": "LKR",
+    "name": "LKR",
+    "usd_exchange_rate": 130.706499,
+    "document_schema": "currencies",
+    "country_name": [
+      "Sri Lanka"
+    ],
+    "symbol": "SLRs",
+    "symbol_native": "SL Re",
+    "currency_name": "Sri Lankan Rupee",
+    "currency_code": "LKR",
+    "currency_name_plural": "Sri Lankan rupees"
+  },
+  {
+    "document_name": "LTL",
+    "name": "LTL",
+    "usd_exchange_rate": 2.529026,
+    "document_schema": "currencies",
+    "country_name": [
+      "Lithuania"
+    ],
+    "symbol": "Lt",
+    "symbol_native": "Lt",
+    "currency_name": "Lithuanian Litas",
+    "currency_code": "LTL",
+    "currency_name_plural": "Lithuanian litai"
+  },
+  {
+    "document_name": "LVL",
+    "name": "LVL",
+    "usd_exchange_rate": 0.51331,
+    "document_schema": "currencies",
+    "country_name": [
+      "Latvia"
+    ],
+    "symbol": "Ls",
+    "symbol_native": "Ls",
+    "currency_name": "Latvian Lats",
+    "currency_code": "LVL",
+    "currency_name_plural": "Latvian lati"
+  },
+  {
+    "document_name": "LYD",
+    "name": "LYD",
+    "usd_exchange_rate": 1.245367,
+    "document_schema": "currencies",
+    "country_name": [
+      "Libya"
+    ],
+    "symbol": "LD",
+    "symbol_native": "د.ل.‏",
+    "currency_name": "Libyan Dinar",
+    "currency_code": "LYD",
+    "currency_name_plural": "Libyan dinars"
+  },
+  {
+    "document_name": "MAD",
+    "name": "MAD",
+    "usd_exchange_rate": 8.216706,
+    "document_schema": "currencies",
+    "country_name": [
+      "Morocco",
+      "Western Sahara"
+    ],
+    "symbol": "MAD",
+    "symbol_native": "د.م.‏",
+    "currency_name": "Moroccan Dirham",
+    "currency_code": "MAD",
+    "currency_name_plural": "Moroccan dirhams"
+  },
+  {
+    "document_name": "MDL",
+    "name": "MDL",
+    "usd_exchange_rate": 13.07375,
+    "document_schema": "currencies",
+    "country_name": [
+      "Moldova"
+    ],
+    "symbol": "MDL",
+    "symbol_native": "MDL",
+    "currency_name": "Moldovan Leu",
+    "currency_code": "MDL",
+    "currency_name_plural": "Moldovan lei"
+  },
+  {
+    "document_name": "MGA",
+    "name": "MGA",
+    "usd_exchange_rate": 2267.266667,
+    "document_schema": "currencies",
+    "country_name": [
+      "Madagascar"
+    ],
+    "symbol": "MGA",
+    "symbol_native": "MGA",
+    "currency_name": "Malagasy Ariary",
+    "currency_code": "MGA",
+    "currency_name_plural": "Malagasy Ariaries"
+  },
+  {
+    "document_name": "MKD",
+    "name": "MKD",
+    "usd_exchange_rate": 45.16089,
+    "document_schema": "currencies",
+    "country_name": [
+      "Macedonia"
+    ],
+    "symbol": "MKD",
+    "symbol_native": "MKD",
+    "currency_name": "Macedonian Denar",
+    "currency_code": "MKD",
+    "currency_name_plural": "Macedonian denari"
+  },
+  {
+    "document_name": "MMK",
+    "name": "MMK",
+    "usd_exchange_rate": 984.9074,
+    "document_schema": "currencies",
+    "country_name": [
+      "Myanmar"
+    ],
+    "symbol": "MMK",
+    "symbol_native": "K",
+    "currency_name": "Myanma Kyat",
+    "currency_code": "MMK",
+    "currency_name_plural": "Myanma kyats"
+  },
+  {
+    "document_name": "MOP",
+    "name": "MOP",
+    "usd_exchange_rate": 7.979081,
+    "document_schema": "currencies",
+    "country_name": [
+      "Macau"
+    ],
+    "symbol": "MOP$",
+    "symbol_native": "MOP$",
+    "currency_name": "Macanese Pataca",
+    "currency_code": "MOP",
+    "currency_name_plural": "Macanese patacas"
+  },
+  {
+    "document_name": "MUR",
+    "name": "MUR",
+    "usd_exchange_rate": 30.3769,
+    "document_schema": "currencies",
+    "country_name": [
+      "Mauritius"
+    ],
+    "symbol": "MURs",
+    "symbol_native": "MURs",
+    "currency_name": "Mauritian Rupee",
+    "currency_code": "MUR",
+    "currency_name_plural": "Mauritian rupees"
+  },
+  {
+    "document_name": "MXN",
+    "name": "MXN",
+    "usd_exchange_rate": 13.02458,
+    "document_schema": "currencies",
+    "country_name": [
+      "Mexico"
+    ],
+    "symbol": "MX$",
+    "symbol_native": "$",
+    "currency_name": "Mexican Peso",
+    "currency_code": "MXN",
+    "currency_name_plural": "Mexican pesos"
+  },
+  {
+    "document_name": "MYR",
+    "name": "MYR",
+    "usd_exchange_rate": 3.263697,
+    "document_schema": "currencies",
+    "country_name": [
+      "Malaysia"
+    ],
+    "symbol": "RM",
+    "symbol_native": "RM",
+    "currency_name": "Malaysian Ringgit",
+    "currency_code": "MYR",
+    "currency_name_plural": "Malaysian ringgits"
+  },
+  {
+    "document_name": "MZN",
+    "name": "MZN",
+    "usd_exchange_rate": 29.997975,
+    "document_schema": "currencies",
+    "country_name": [
+      "Mozambique"
+    ],
+    "symbol": "MTn",
+    "symbol_native": "MTn",
+    "currency_name": "Mozambican Metical",
+    "currency_code": "MZN",
+    "currency_name_plural": "Mozambican meticals"
+  },
+  {
+    "document_name": "NAD",
+    "name": "NAD",
+    "usd_exchange_rate": 10.7378,
+    "document_schema": "currencies",
+    "country_name": [
+      "Namibia"
+    ],
+    "symbol": "N$",
+    "symbol_native": "N$",
+    "currency_name": "Namibian Dollar",
+    "currency_code": "NAD",
+    "currency_name_plural": "Namibian dollars"
+  },
+  {
+    "document_name": "NGN",
+    "name": "NGN",
+    "usd_exchange_rate": 159.189499,
+    "document_schema": "currencies",
+    "country_name": [
+      "Nigeria"
+    ],
+    "symbol": "₦",
+    "symbol_native": "₦",
+    "currency_name": "Nigerian Naira",
+    "currency_code": "NGN",
+    "currency_name_plural": "Nigerian nairas"
+  },
+  {
+    "document_name": "NIO",
+    "name": "NIO",
+    "usd_exchange_rate": 25.26368,
+    "document_schema": "currencies",
+    "country_name": [
+      "Nicaragua"
+    ],
+    "symbol": "C$",
+    "symbol_native": "C$",
+    "currency_name": "Nicaraguan Córdoba",
+    "currency_code": "NIO",
+    "currency_name_plural": "Nicaraguan córdobas"
+  },
+  {
+    "document_name": "NOK",
+    "name": "NOK",
+    "usd_exchange_rate": 6.163321,
+    "document_schema": "currencies",
+    "country_name": [
+      "Bouvet Island",
+      "Norway",
+      "Svalbard and Jan Mayen"
+    ],
+    "symbol": "Nkr",
+    "symbol_native": "kr",
+    "currency_name": "Norwegian Krone",
+    "currency_code": "NOK",
+    "currency_name_plural": "Norwegian kroner"
+  },
+  {
+    "document_name": "NPR",
+    "name": "NPR",
+    "usd_exchange_rate": 98.970701,
+    "document_schema": "currencies",
+    "country_name": [
+      "Nepal"
+    ],
+    "symbol": "NPRs",
+    "symbol_native": "नेरू",
+    "currency_name": "Nepalese Rupee",
+    "currency_code": "NPR",
+    "currency_name_plural": "Nepalese rupees"
+  },
+  {
+    "document_name": "NZD",
+    "name": "NZD",
+    "usd_exchange_rate": 1.205592,
+    "document_schema": "currencies",
+    "country_name": [
+      "Cook Islands",
+      "New Zealand",
+      "Niue",
+      "Pitcairn Islands",
+      "Tokelau"
+    ],
+    "symbol": "NZ$",
+    "symbol_native": "$",
+    "currency_name": "New Zealand Dollar",
+    "currency_code": "NZD",
+    "currency_name_plural": "New Zealand dollars"
+  },
+  {
+    "document_name": "OMR",
+    "name": "OMR",
+    "usd_exchange_rate": 0.385007,
+    "document_schema": "currencies",
+    "country_name": [
+      "Oman"
+    ],
+    "symbol": "OMR",
+    "symbol_native": "ر.ع.‏",
+    "currency_name": "Omani Rial",
+    "currency_code": "OMR",
+    "currency_name_plural": "Omani rials"
+  },
+  {
+    "document_name": "PAB",
+    "name": "PAB",
+    "usd_exchange_rate": 1,
+    "document_schema": "currencies",
+    "country_name": [
+      "Panama"
+    ],
+    "symbol": "B/.",
+    "symbol_native": "B/.",
+    "currency_name": "Panamanian Balboa",
+    "currency_code": "PAB",
+    "currency_name_plural": "Panamanian balboas"
+  },
+  {
+    "document_name": "PEN",
+    "name": "PEN",
+    "usd_exchange_rate": 2.799215,
+    "document_schema": "currencies",
+    "country_name": [
+      "Peru"
+    ],
+    "symbol": "S/.",
+    "symbol_native": "S/.",
+    "currency_name": "Peruvian Nuevo Sol",
+    "currency_code": "PEN",
+    "currency_name_plural": "Peruvian nuevos soles"
+  },
+  {
+    "document_name": "PHP",
+    "name": "PHP",
+    "usd_exchange_rate": 44.60915,
+    "document_schema": "currencies",
+    "country_name": [
+      "Philippines"
+    ],
+    "symbol": "₱",
+    "symbol_native": "₱",
+    "currency_name": "Philippine Peso",
+    "currency_code": "PHP",
+    "currency_name_plural": "Philippine pesos"
+  },
+  {
+    "document_name": "PKR",
+    "name": "PKR",
+    "usd_exchange_rate": 105.5066,
+    "document_schema": "currencies",
+    "country_name": [
+      "Pakistan"
+    ],
+    "symbol": "PKRs",
+    "symbol_native": "₨",
+    "currency_name": "Pakistani Rupee",
+    "currency_code": "PKR",
+    "currency_name_plural": "Pakistani rupees"
+  },
+  {
+    "document_name": "PLN",
+    "name": "PLN",
+    "usd_exchange_rate": 3.04623,
+    "document_schema": "currencies",
+    "country_name": [
+      "Poland"
+    ],
+    "symbol": "zł",
+    "symbol_native": "zł",
+    "currency_name": "Polish Zloty",
+    "currency_code": "PLN",
+    "currency_name_plural": "Polish zlotys"
+  },
+  {
+    "document_name": "PYG",
+    "name": "PYG",
+    "usd_exchange_rate": 4612.049935,
+    "document_schema": "currencies",
+    "country_name": [
+      "Paraguay"
+    ],
+    "symbol": "₲",
+    "symbol_native": "₲",
+    "currency_name": "Paraguayan Guarani",
+    "currency_code": "PYG",
+    "currency_name_plural": "Paraguayan guaranis"
+  },
+  {
+    "document_name": "QAR",
+    "name": "QAR",
+    "usd_exchange_rate": 3.641361,
+    "document_schema": "currencies",
+    "country_name": [
+      "Qatar"
+    ],
+    "symbol": "QR",
+    "symbol_native": "ر.ق.‏",
+    "currency_name": "Qatari Rial",
+    "currency_code": "QAR",
+    "currency_name_plural": "Qatari rials"
+  },
+  {
+    "document_name": "RON",
+    "name": "RON",
+    "usd_exchange_rate": 3.325024,
+    "document_schema": "currencies",
+    "country_name": [
+      "Romania"
+    ],
+    "symbol": "RON",
+    "symbol_native": "RON",
+    "currency_name": "Romanian Leu",
+    "currency_code": "RON",
+    "currency_name_plural": "Romanian lei"
+  },
+  {
+    "document_name": "RSD",
+    "name": "RSD",
+    "usd_exchange_rate": 84.362659,
+    "document_schema": "currencies",
+    "country_name": [
+      "Serbia"
+    ],
+    "symbol": "din.",
+    "symbol_native": "дин.",
+    "currency_name": "Serbian Dinar",
+    "currency_code": "RSD",
+    "currency_name_plural": "Serbian dinars"
+  },
+  {
+    "document_name": "SOS",
+    "name": "SOS",
+    "usd_exchange_rate": 1110.763367,
+    "document_schema": "currencies",
+    "country_name": [
+      "Somalia"
+    ],
+    "symbol": "Ssh",
+    "symbol_native": "Ssh",
+    "currency_name": "Somali Shilling",
+    "currency_code": "SOS",
+    "currency_name_plural": "Somali shillings"
+  },
+  {
+    "document_name": "SYP",
+    "name": "SYP",
+    "usd_exchange_rate": 141.643749,
+    "document_schema": "currencies",
+    "country_name": [
+      "Syria"
+    ],
+    "symbol": "SY£",
+    "symbol_native": "ل.س.‏",
+    "currency_name": "Syrian Pound",
+    "currency_code": "SYP",
+    "currency_name_plural": "Syrian pounds"
+  },
+  {
+    "document_name": "THB",
+    "name": "THB",
+    "usd_exchange_rate": 33.00626,
+    "default": 1,
+    "document_schema": "currencies",
+    "country_name": [
+      "Thailand"
+    ],
+    "symbol": "฿",
+    "symbol_native": "฿",
+    "currency_name": "Thai Baht",
+    "currency_code": "THB",
+    "currency_name_plural": "Thai baht"
+  },
+  {
+    "document_name": "TND",
+    "name": "TND",
+    "usd_exchange_rate": 1.654257,
+    "document_schema": "currencies",
+    "country_name": [
+      "Tunisia"
+    ],
+    "symbol": "DT",
+    "symbol_native": "د.ت.‏",
+    "currency_name": "Tunisian Dinar",
+    "currency_code": "TND",
+    "currency_name_plural": "Tunisian dinars"
+  },
+  {
+    "document_name": "TOP",
+    "name": "TOP",
+    "usd_exchange_rate": 1.861115,
+    "document_schema": "currencies",
+    "country_name": [
+      "Tonga"
+    ],
+    "symbol": "T$",
+    "symbol_native": "T$",
+    "currency_name": "Tongan Paʻanga",
+    "currency_code": "TOP",
+    "currency_name_plural": "Tongan paʻanga"
+  },
+  {
+    "document_name": "TRY",
+    "name": "TRY",
+    "usd_exchange_rate": 2.170185,
+    "document_schema": "currencies",
+    "country_name": [
+      "Turkey"
+    ],
+    "symbol": "TL",
+    "symbol_native": "TL",
+    "currency_name": "Turkish Lira",
+    "currency_code": "TRY",
+    "currency_name_plural": "Turkish Lira"
+  },
+  {
+    "document_name": "TTD",
+    "name": "TTD",
+    "usd_exchange_rate": 6.40739,
+    "document_schema": "currencies",
+    "country_name": [
+      "Trinidad and Tobago"
+    ],
+    "symbol": "TT$",
+    "symbol_native": "$",
+    "currency_name": "Trinidad and Tobago Dollar",
+    "currency_code": "TTD",
+    "currency_name_plural": "Trinidad and Tobago dollars"
+  },
+  {
+    "document_name": "TWD",
+    "name": "TWD",
+    "usd_exchange_rate": 30.04289,
+    "document_schema": "currencies",
+    "country_name": [
+      "Taiwan"
+    ],
+    "symbol": "NT$",
+    "symbol_native": "NT$",
+    "currency_name": "New Taiwan Dollar",
+    "currency_code": "TWD",
+    "currency_name_plural": "New Taiwan dollars"
+  },
+  {
+    "document_name": "TZS",
+    "name": "TZS",
+    "usd_exchange_rate": 1616.46,
+    "document_schema": "currencies",
+    "country_name": [
+      "Tanzania"
+    ],
+    "symbol": "TSh",
+    "symbol_native": "TSh",
+    "currency_name": "Tanzanian Shilling",
+    "currency_code": "TZS",
+    "currency_name_plural": "Tanzanian shillings"
+  },
+  {
+    "document_name": "UAH",
+    "name": "UAH",
+    "usd_exchange_rate": 8.265182,
+    "document_schema": "currencies",
+    "country_name": [
+      "Ukraine"
+    ],
+    "symbol": "₴",
+    "symbol_native": "₴",
+    "currency_name": "Ukrainian Hryvnia",
+    "currency_code": "UAH",
+    "currency_name_plural": "Ukrainian hryvnias"
+  },
+  {
+    "document_name": "UGX",
+    "name": "UGX",
+    "usd_exchange_rate": 2514.865,
+    "document_schema": "currencies",
+    "country_name": [
+      "Uganda"
+    ],
+    "symbol": "USh",
+    "symbol_native": "USh",
+    "currency_name": "Ugandan Shilling",
+    "currency_code": "UGX",
+    "currency_name_plural": "Ugandan shillings"
+  },
+  {
+    "document_name": "UYU",
+    "name": "UYU",
+    "usd_exchange_rate": 21.16079,
+    "document_schema": "currencies",
+    "country_name": [
+      "Uruguay"
+    ],
+    "symbol": "$U",
+    "symbol_native": "$",
+    "currency_name": "Uruguayan Peso",
+    "currency_code": "UYU",
+    "currency_name_plural": "Uruguayan pesos"
+  },
+  {
+    "document_name": "UZS",
+    "name": "UZS",
+    "usd_exchange_rate": 2202.183317,
+    "document_schema": "currencies",
+    "country_name": [
+      "Uzbekistan"
+    ],
+    "symbol": "UZS",
+    "symbol_native": "UZS",
+    "currency_name": "Uzbekistan Som",
+    "currency_code": "UZS",
+    "currency_name_plural": "Uzbekistan som"
+  },
+  {
+    "document_name": "VEF",
+    "name": "VEF",
+    "usd_exchange_rate": 6.291383,
+    "document_schema": "currencies",
+    "country_name": [
+      "Venezuela"
+    ],
+    "symbol": "Bs.F.",
+    "symbol_native": "Bs.F.",
+    "currency_name": "Venezuelan Bolívar",
+    "currency_code": "VEF",
+    "currency_name_plural": "Venezuelan bolívars"
+  },
+  {
+    "document_name": "VND",
+    "name": "VND",
+    "usd_exchange_rate": 21089.866667,
+    "document_schema": "currencies",
+    "country_name": [
+      "Vietnam"
+    ],
+    "symbol": "₫",
+    "symbol_native": "₫",
+    "currency_name": "Vietnamese Dong",
+    "currency_code": "VND",
+    "currency_name_plural": "Vietnamese dong"
+  },
+  {
+    "document_name": "XAF",
+    "name": "XAF",
+    "usd_exchange_rate": 481.4239,
+    "document_schema": "currencies",
+    "country_name": [
+      "Cameroon",
+      "Central African Republic",
+      "Chad",
+      "Republic of the Congo",
+      "Equatorial Guinea",
+      "Gabon"
+    ],
+    "symbol": "FCFA",
+    "symbol_native": "FCFA",
+    "currency_name": "CFA Franc BEAC",
+    "currency_code": "XAF",
+    "currency_name_plural": "CFA francs BEAC"
+  },
+  {
+    "document_name": "XOF",
+    "name": "XOF",
+    "usd_exchange_rate": 482.302618,
+    "document_schema": "currencies",
+    "country_name": [
+      "Benin",
+      "Burkina Faso",
+      "Côte d'Ivoire",
+      "Guinea-Bissau",
+      "Mali",
+      "Niger",
+      "Senegal",
+      "Togo"
+    ],
+    "symbol": "CFA",
+    "symbol_native": "CFA",
+    "currency_name": "CFA Franc BCEAO",
+    "currency_code": "XOF",
+    "currency_name_plural": "CFA francs BCEAO"
+  },
+  {
+    "document_name": "YER",
+    "name": "YER",
+    "usd_exchange_rate": 215.063301,
+    "document_schema": "currencies",
+    "country_name": [
+      "Yemen"
+    ],
+    "symbol": "YR",
+    "symbol_native": "ر.ي.‏",
+    "currency_name": "Yemeni Rial",
+    "currency_code": "YER",
+    "currency_name_plural": "Yemeni rials"
+  },
+  {
+    "document_name": "ZAR",
+    "name": "ZAR",
+    "usd_exchange_rate": 10.70302,
+    "document_schema": "currencies",
+    "country_name": [
+      "Lesotho",
+      "Namibia",
+      "South Africa"
+    ],
+    "symbol": "R",
+    "symbol_native": "R",
+    "currency_name": "South African Rand",
+    "currency_code": "ZAR",
+    "currency_name_plural": "South African rand"
+  },
+  {
+    "document_name": "ZMK",
+    "name": "ZMK",
+    "usd_exchange_rate": 5252.024745,
+    "document_schema": "currencies",
+    "country_name": [
+      "Zambia"
+    ],
+    "symbol": "ZK",
+    "symbol_native": "ZK",
+    "currency_name": "Zambian Kwacha",
+    "currency_code": "ZMK",
+    "currency_name_plural": "Zambian kwachas"
+  },
+  {
+    "document_name": "AOA",
+    "name": "AOA",
+    "usd_exchange_rate": 97.6198,
+    "document_schema": "currencies",
+    "country_name": [
+      "Angola"
+    ],
+    "symbol": "Kz",
+    "symbol_native": "Kz",
+    "currency_name": "Angolan Kwanza",
+    "currency_code": "AOA",
+    "currency_name_plural": "Angolan Kwanzas"
+  },
+  {
+    "document_name": "XCD",
+    "name": "XCD",
+    "usd_exchange_rate": 4.47301,
+    "document_schema": "currencies",
+    "country_name": [
+      "Anguilla"
+    ],
+    "symbol": "$",
+    "symbol_native": "$",
+    "currency_name": "East Caribbean Dollar",
+    "currency_code": "XCD",
+    "currency_name_plural": "East Caribbean Dollars"
+  }
+]

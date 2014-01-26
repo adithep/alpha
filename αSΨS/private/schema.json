@@ -1,0 +1,269 @@
+[
+  {
+    "document_name": "contact_button",
+    "document_schema": "document_schema"
+  },
+
+  {
+    "document_name": "countries",
+    "document_schema": "document_schema",
+    "schema": {
+      "document_schema": {
+        "key_type": "oid"
+      },
+      "document_name": {
+        "key_type": "string"
+      },
+      "borders": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "string"
+        }
+      },
+      "latlng": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "number"
+        }
+      },
+      "population": {
+        "key_type": "number"
+      },
+      "calling_code": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "string"
+        }
+      },
+      "currency": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "oid"
+        }
+      },
+      "cca3": {
+        "key_type": "string"
+      },
+      "cca2": {
+        "key_type": "string"
+      },
+      "ccn3": {
+        "key_type": "string"
+      },
+      "tld": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "string"
+        }
+      },
+      "native_name": {
+        "key_type": "string"
+      },
+      "capital": {
+        "key_type": "string"
+      },
+      "alt_sepllings": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "string"
+        }
+      },
+      "region": {
+        "key_type": "oid"
+      },
+      "sub_region": {
+        "key_type": "oid"
+      },
+      "languages": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "oid"
+        }
+      }
+    }   
+  },
+
+  {
+    "document_name": "humans",
+    "document_schema": "document_schema",
+    "schema": {
+      "document_schema": {
+        "key_type": "oid"
+      },
+      "full_name": {
+        "key_type": "object",
+        "object_keys": {
+          "first_name": {
+            "key_type": "string"
+          },
+          "middle_name": {
+            "key_type": "string"
+          },
+          "last_name": {
+            "key_type": "string"
+          }
+        }
+      },
+      "email": {
+        "key_type": "object",
+        "object_keys": {
+          "main": {
+            "key_type": "array",
+            "array_values": {
+              "value_type": "email"
+            }
+          },
+         "personal": {
+            "key_type": "array",
+            "array_values": {
+              "value_type": "email"
+            }
+          },
+          "work": {
+            "key_type": "array",
+            "array_values": {
+              "value_type": "email"
+            }
+          }
+        }
+      },
+      "mobile": {
+        "key_type": "object",
+        "object_keys": {
+          "main": {
+            "key_type": "array",
+            "array_values": {
+              "value_type": "phone"
+            }
+          },
+         "personal": {
+            "key_type": "array",
+            "array_values": {
+              "value_type": "phone"
+            }
+          },
+          "work": {
+            "key_type": "array",
+            "array_values": {
+              "value_type": "phone"
+            }
+          }
+        }
+      },
+      "service": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "object",
+          "object_keys": {
+            "date_of_entry": {
+              "key_type": "date"
+            },
+            "service": {
+              "key_type": "oid"
+            },
+            "currency": {
+              "key_type": "oid"
+            },
+            "cost": {
+              "key_type": "currency"
+            }
+          }
+        }
+      },
+      "date_of_birth": {
+        "key_type": "date"
+      },
+      "city": {
+        "key_type": "oid"
+      }
+    }
+  },
+
+  {
+    "document_name": "titles",
+    "document_schema": "document_schema",
+    "schema": {
+      "document_schema": {
+        "key_type": "oid"
+      },
+      "document_name": {
+        "key_type": "string"
+      }
+    }
+  },
+
+  {
+    "document_name": "cities",
+    "document_schema": "document_schema",
+    "schema": {
+      "document_schema": {
+        "key_type": "oid"
+      },
+      "document_name": {
+        "key_type": "string"
+      },
+      "population": {
+        "key_type": "number"
+      },
+      "country": {
+        "key_type": "oid"
+      },
+      "latlng": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "number"
+        }
+      }
+    }
+  },
+
+  {
+    "document_name": "currencies",
+    "document_schema": "document_schema",
+    "schema": {
+      "document_schema": {
+        "key_type": "oid"
+      },
+      "document_name": {
+        "key_type": "string"
+      },
+      "usd_exchange_rate": {
+        "key_type": "number"
+      },
+      "countries": {
+        "key_type": "array",
+        "array_values": {
+          "value_type": "oid"
+        }
+      },
+      "symbol": {
+        "key_type": "string"
+      },
+      "symbol_native": {
+        "key_type": "string"
+      },
+      "currency_name": {
+        "key_type": "string"
+      },
+      "currency_code": {
+        "key_type": "string"
+      },
+      "currency_name_plural": {
+        "key_type": "string"
+      }
+    }
+  },
+
+  {
+    "document_name": "services",
+    "document_schema": "document_schema",
+    "schema": {
+      "document_schema": {
+        "key_type": "oid"
+      },
+      "document_name": {
+        "key_type": "string"
+      }
+    }
+  }
+]

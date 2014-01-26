@@ -1,0 +1,305 @@
+[
+  {
+    "button_class": "add_contact_button",
+    "input_starting": 1,
+    "name": "input_company_name",
+    "inner_html": "Company Name",
+    "individual": 2,
+    "array": 0,
+    "columns": "large-4 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "text",
+        "input_type": "text",
+        "input_name": "company_name",
+        "input_class": "input_company_name",
+        "input_placeholder": "Company Name",
+        "input_columns": "small-12 columns"
+      }
+    ],  
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "input_starting": 1,
+    "name": "select_initials_list",
+    "inner_html": "Initials",
+    "individual": 1,
+    "array": 0,
+    "parent_obj": "full_name",
+    "columns": "large-1 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "id",
+        "select_name": "initials",
+        "select_class": "select_initials_list",
+        "select_database": "initials_list",
+        "input_columns": "small-12 columns"
+      }
+    ],
+    
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "input_starting": 1,
+    "inner_html": "First Name",
+    "name": "input_first_name",
+    "individual": 1,
+    "array": 0,
+    "parent_obj": "full_name",
+    "columns": "large-4 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "text",
+        "input_type": "text",
+        "input_name": "first_name",
+        "input_class": "input_first_name",
+        "input_placeholder": "First Name",
+        "input_columns": "small-12 columns"
+      }
+    ],
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "input_last_name",
+    "inner_html": "Last Name",
+    "individual": 1,
+    "array": 0,
+    "parent_obj": "full_name",
+    "columns": "large-4 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "text",
+        "input_type": "text",
+        "input_name": "last_name",
+        "input_class": "input_last_name",
+        "input_placeholder": "Last Name",
+        "input_columns": "small-10 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-2 columns"
+      }
+    ],
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "input_middle_name",
+    "inner_html": "Middle Name",
+    "individual": 1,
+    "array": 0,
+    "parent_obj": "full_name",
+    "columns": "large-4 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "text",
+        "input_type": "text",
+        "input_name": "middle_name",
+        "input_class": "input_middle_name",
+        "input_placeholder": "Middle Name",
+        "input_columns": "small-10 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-2 columns"
+      }
+    ],
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "input_email",
+    "inner_html": "Email",
+    "individual": 0,
+    "array": 1,
+    "parent_obj_t": "email",
+    "columns": "large-5 columns",
+    "input": 
+    [
+      {
+        "value_type": "email",
+        "select_name": "reach",
+        "select_database": "reach_type",
+        "select_class": "reach_type",
+        "select_columns": "small-3 columns"
+      }, 
+      {
+        "value_type": "email",
+        "input_type": "email",
+        "input_name": "email",
+        "input_class": "input_email",
+        "input_placeholder": "Email",
+        "input_columns": "small-8 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-1 columns"
+      }
+    ],
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "input_mobile",
+    "inner_html": "Mobile",
+    "individual": 0,
+    "array": 1,
+    "parent_obj_t": "mobile",
+    "columns": "large-5 columns",
+    "input": 
+    [
+    {
+        "value_type": "phone",
+        "select_name": "reach",
+        "select_database": "reach_type",
+        "select_class": "reach_type",
+        "select_columns": "small-3 columns"
+      },
+      {
+        "value_type": "phone",
+        "input_type": "text",
+        "input_name": "mobile",
+        "input_class": "input_mobile",
+        "input_placeholder": "Mobile",
+        "input_columns": "small-8 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-1 columns"
+      }
+    ],
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "input_date_of_birth",
+    "inner_html": "Date of Birth",
+    "individual": 1,
+    "array": 0,
+    "columns": "large-3 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "date",
+        "input_type": "date",
+        "input_name": "date_of_birth",
+        "input_class": "input_date_of_birth",
+        "input_placeholder": "Date of Birth",
+        "input_columns": "small-10 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-2 columns"
+      }
+    ],
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "select_countries_list",
+    "inner_html": "Country",
+    "individual": 0,
+    "array": 0,
+    "columns": "large-4 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "id",
+        "select_name": "Countries",
+        "select_database": "countries_list",
+        "select_class": "select_countries_list",
+        "select_columns": "small-10 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-2 columns"
+      }
+    ],
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "select_cities_list",
+    "inner_html": "City",
+    "individual": 0,
+    "array": 0,
+    "input_type": "input_select",
+    "columns": "large-4 columns",
+    "input": 
+    [ 
+      {
+        "value_type": "id",
+        "input_select_name": "city",
+        "input_select_database": "city",
+        "input_type": "text",
+        "input_select_class": "select_cities_list",
+        "input_placeholder": "Select City",
+        "autocomplete": "off",
+        "input_select_columns": "small-10 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-2 columns"
+      }
+    ],
+    
+    "type": "contact_button_list"
+  },
+  {
+    "button_class": "add_contact_button",
+    "name": "input_service_cost",
+    "inner_html": "Service",
+    "individual": 1,
+    "array": 1,
+    "parent_obj": "service",
+    "columns": "large-7 columns",
+    "input": 
+    [
+      {
+        "value_type": "date",
+        "input_type": "date",
+        "date_t": 1,
+        "input_name": "date_of_entry",
+        "input_class": "input_date_of_entry",
+        "input_placeholder": "Date of Entry",
+        "input_columns": "small-4 columns"
+      }, 
+      {
+        "value_type": "id",
+        "select_name": "service",
+        "select_database": "service",
+        "select_class": "select_service",
+        "select_columns": "small-3 columns"
+      },
+      {
+        "value_type": "id",
+        "select_name": "currency",
+        "select_database": "currency",
+        "select_class": "select_currency",
+        "select_columns": "small-1 columns"
+      },
+      {
+        "value_type": "currency",
+        "input_type": "number",
+        "input_name": "cost",
+        "input_class": "input_cost",
+        "input_placeholder": "Cost",
+        "input_columns": "small-3 columns"
+      },
+      {
+        "close": 1,
+        "input_close": "small-1 columns"
+      }
+      
+    ],
+    "type": "contact_button_list"
+  }
+]

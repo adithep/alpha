@@ -1,0 +1,35 @@
+{
+  "name": "alphaSys",
+  "version": "0.0.1",
+  "description": "αSystem. World's most advance motion picture production System",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "α",
+    "alpha",
+    "Sys"
+  ],
+  "author": "αdithep SriNarulα",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-jade": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-stylus": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compress": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-csslint": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-cli": "*",
+    "grunt-newer": "*",
+    "grunt-coffeelint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt": "*"
+  }
+}

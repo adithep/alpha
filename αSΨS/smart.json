@@ -1,0 +1,15 @@
+{
+  "packages": {
+    "npm": {},
+    "iron-router": {},
+    "mongodb-server-aggregation": {},
+    "rloop": {
+      "path": "/Users/alpha/Desktop/αSYS/packages/rloop"
+    },
+    "lodash": {
+      "path": "/Users/alpha/Desktop/αSYS/packages/lodash"
+    },
+    "zurb-foundation": {},
+    "collection-hooks": {}
+  }
+}
