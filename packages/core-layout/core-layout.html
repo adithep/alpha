@@ -1,0 +1,122 @@
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>αSΨS</title>
+</head>
+<body>{{>dbody}}</body>
+<template name="layout">
+  <div id="parent">
+    <nav data-topbar="data-topbar" class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">αSΨS</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a><span>Menu</span></a></li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="divider"></li>
+          <li><a data-path="an" href="/moduletest">moduleTest</a></li>
+          <li><a data-path="an" href="/add_contact">Add Contact</a></li>
+          <li><a data-path="an" href="/display_contact">Display Contact</a></li>
+        </ul>
+        <ul class="right">
+          <li class="divider"></li>
+          <li class="has-dropdown"><a>User : {{currentUser.username}}</a>
+            <ul class="dropdown">
+              <li><a id="logout">logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+    <div id="yieldchild" class="row">
+      <div class="large-12 columns">{{> dyield}}</div>
+    </div>
+  </div>
+</template>
+<template name="dbody">
+  {{#if currentUser.username}}
+  {{> layout}}
+  {{else}}
+  {{> login}}
+  {{/if}}
+</template>
+<template name="moduletest">
+  <h1>αSΨS</h1>
+  <h2>moduletest</h2>
+</template>
+<template name="sorry_man">
+  <h1>Cannot find anytin in this path!!! Panic!!! What to do??</h1>
+</template>
+<template name="add_contact">
+  <ul class="button-group radius">{{>_each_schema}}</ul>
+  <form class="contact_form">
+    <div class="row">{{#each input_element}}
+      <div data-sid="{{this._id._str}}" class="large-{{this.input_size}} columns left parentdiv">
+        <div class="row collapse">
+          {{#each this.form_element}}
+          {{#if object_keys_arr}}
+          <div class="small-{{this.select_small_size}} columns">
+            <select name="{{this.key_name}}" data-sid="{{this._sid._str}}">{{#each select_options_arr this._sid}}
+              <option value="{{this._id._str}}">{{this.select_opt_name}}</option>{{/each}}
+            </select>
+          </div>{{/if}}
+          {{#if this.input}}
+          <div class="small-{{this.input_small_size}} columns">
+            <input name="{{key_name}}" type="{{this.input_type}}" placeholder="{{this.input_placeholder}}" data-sid="{{this._sid._str}}"/>
+            <div data-alert="data-alert" class="alert-box alaa warning"><span>invalid</span></div>
+          </div>{{/if}}
+          {{#if select}}
+          <div class="small-{{this.input_small_size}} columns">
+            <select name="{{this.key_name}}" data-sid="{{this._sid._str}}">{{#each select_options this._sid}}
+              <option value="{{this._id._str}}">{{this.doc_name}}</option>{{/each}}
+            </select>
+          </div>{{/if}}
+          {{/each}}
+          {{#unless input_starting}}
+          <div class="small-1 columns"><a data-id="{{this._id._str}}" class="button postfix close_input">X</a></div>{{/unless}}
+        </div>
+      </div>{{/each}}
+    </div><a class="button form_submit">Submit</a>
+  </form>
+</template>
+<template name="_each_schema">
+  {{#each schema}}
+  {{>_schema}}
+  {{/each}}
+</template>
+<template name="_schema">
+  <li><a data-id="{{this._id._str}}" class="button small click-input">{{this.button_name}}</a></li>
+</template>
+<template name="login">
+  <div id="logindiv" class="row">
+    <div class="large-12 columns">
+      <h1>Login</h1>{{#if currentUser.username}}
+      {{else}}
+      {{#if loggingIn}}
+      <p>Logging in...</p>{{else}}
+      {{#if creatingAccount}}
+      {{>newAccountForm}}
+      {{else}}
+      {{>loginForm}}
+      {{/if}}
+      {{/if}}
+      {{/if}}
+    </div>
+  </div>
+</template>
+<template name="newAccountForm">
+  <input type="text" id="email" placeholder="email"/>
+  <input type="text" id="name" placeholder="name"/>
+  <input type="text" id="username" placeholder="username"/>
+  <input type="password" id="password" placeholder="password"/>
+  <button id="createaccount">Create</button>
+  <p id="loginform">(Login)</p>
+</template>
+<template name="loginForm">
+  <input type="text" id="username" placeholder="username"/>
+  <input type="password" id="password" placeholder="password"/>
+  <button id="login">Login</button><br/>
+  <button id="accountform">Create Account</button>
+</template>

@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api, where) {
   api.add_files('lodash.js', ['client', 'server']);
-  api.export('lodash', ['client', 'server']);
+  api.export('_', ['client', 'server']);
 });
 
 Package.on_test(function (api) {

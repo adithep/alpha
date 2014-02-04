@@ -28,11 +28,27 @@ module.exports = (grunt) ->
         ext: ".js"
         options:
           bare: true
-      recur:
+      rloop:
         expand: true,
-        cwd: 'coffee/packages/recursive_loop',
+        cwd: 'coffee/packages/rloop',
         src: "**/*.coffee",
-        dest: "αSΨS/packages/recursive_loop",
+        dest: "packages/rloop",
+        ext: ".js"
+        options:
+          bare: true
+      core_layout:
+        expand: true,
+        cwd: 'coffee/packages/core-layout',
+        src: "**/*.coffee",
+        dest: "packages/core-layout",
+        ext: ".js"
+        options:
+          bare: true
+      human_insert_form:
+        expand: true,
+        cwd: 'coffee/packages/human-insert-form',
+        src: "**/*.coffee",
+        dest: "packages/human-insert-form",
         ext: ".js"
         options:
           bare: true
@@ -57,9 +73,17 @@ module.exports = (grunt) ->
         expand: true,
         cwd: 'αSΨS/lib',
         src: "**/*.js"
-      recur:
+      rloop:
         expand: true,
-        cwd: 'αSΨS/packages/recursive_loop',
+        cwd: 'packages/rloop',
+        src: "**/*.js"
+      core_layout:
+        expand: true,
+        cwd: 'packages/core-layout',
+        src: "**/*.js"
+      human_insert_form:
+        expand: true,
+        cwd: 'packages/human-insert-form',
         src: "**/*.js"
 
     coffeelint:
@@ -72,7 +96,9 @@ module.exports = (grunt) ->
       server: ['coffee/server/**/*.coffee']
       client: ['coffee/client/**/*.coffee']
       lib: ['coffee/lib/**/*.coffee']
-      recur: ['coffee/packages/recursive_loop/**/*.coffee']
+      rloop: ['coffee/packages/rloop/**/*.coffee']
+      human_insert_form: ['coffee/packages/human-insert-form/**/*.coffee']
+      core_layout: ['coffee/packages/core-layout/**/*.coffee']
     concat:
       vendor:
         files: 'javascript/client/vendor.js':
@@ -82,18 +108,50 @@ module.exports = (grunt) ->
     jade:
       client:
         expand: true,
-        cwd: 'jade',
+        cwd: 'jade/client',
         src: "**/*.jade",
         dest: "αSΨS/client",
+        ext: ".html"
+        options:
+          pretty: true
+      core_layout:
+        expand: true,
+        cwd: 'jade/packages/core-layout',
+        src: "**/*.jade",
+        dest: "packages/core-layout",
+        ext: ".html"
+        options:
+          pretty: true
+      human_insert_form:
+        expand: true,
+        cwd: 'jade/packages/human-insert-form',
+        src: "**/*.jade",
+        dest: "packages/human-insert-form",
         ext: ".html"
         options:
           pretty: true
     stylus:
       client:
         expand: true,
-        cwd: 'stylus',
+        cwd: 'stylus/client',
         src: "**/*.stylus",
         dest: "αSΨS/client",
+        ext: ".css"
+        options:
+          pretty: true
+      core_layout:
+        expand: true,
+        cwd: 'stylus/packages/core-layout',
+        src: "**/*.stylus",
+        dest: "packages/core-layout",
+        ext: ".css"
+        options:
+          pretty: true
+      human_insert_form:
+        expand: true,
+        cwd: 'stylus/packages/human-insert-form',
+        src: "**/*.stylus",
+        dest: "packages/human-insert-form",
         ext: ".css"
         options:
           pretty: true
@@ -101,9 +159,27 @@ module.exports = (grunt) ->
       server:
         files: ['coffee/server/**/*.coffee']
         tasks: ['default']
-      recur:
-        files: ['coffee/packages/recursive_loop/**/*.coffee']
-        tasks: ['build_recur']
+      rloop:
+        files: ['coffee/packages/rloop/**/*.coffee']
+        tasks: ['build_rloop']
+      human_insert_form_coffee:
+        files: ['coffee/packages/human-insert-form/**/*.coffee']
+        tasks: ['build_human_insert_form']
+      human_insert_form_jade:
+        files: ['jade/packages/human-insert-form/**/*.jade']
+        tasks: ['jade:human_insert_form']
+      human_insert_form_stylus:
+        files: ['stylus/packages/human-insert-form/**/*.styus']
+        tasks: ['stylus:human_insert_form']
+      core_layout_coffee:
+        files: ['coffee/packages/core-layout/**/*.coffee']
+        tasks: ['build_core_layout']
+      core_layout_jade:
+        files: ['jade/packages/core-layout/**/*.jade']
+        tasks: ['jade:core_layout']
+      core_layout_stylus:
+        files: ['stylus/packages/core-layout/**/*.stylus']
+        tasks: ['stylus:core_layout']
       client_j:
         files: ['coffee/client/**/*.coffee']
         tasks: ['build_j']
@@ -132,7 +208,9 @@ module.exports = (grunt) ->
   grunt.registerTask('g', ['coffeelint:Grunt', 'coffee:Grunt', 'jshint:Grunt'])
   grunt.registerTask('build_j', ['coffeelint:client', 'coffee:client', 'jshint:client'])
   grunt.registerTask('build_b', ['coffeelint:lib', 'coffee:lib', 'jshint:lib'])
-  grunt.registerTask('build_recur', ['coffeelint:recur', 'coffee:recur', 'jshint:recur'])
+  grunt.registerTask('build_rloop', ['coffeelint:rloop', 'coffee:rloop', 'jshint:rloop'])
+  grunt.registerTask('build_human_insert_form', ['coffeelint:human_insert_form', 'coffee:human_insert_form', 'jshint:human_insert_form'])
+  grunt.registerTask('build_core_layout', ['coffeelint:core_layout', 'coffee:core_layout', 'jshint:core_layout'])
   grunt.registerTask('build_h', ['jade:client'])
   grunt.registerTask('build_c', ['stylus:client'])
   grunt.registerTask('build_r', ['jade:route'])

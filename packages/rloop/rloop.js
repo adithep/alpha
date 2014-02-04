@@ -1,5 +1,4 @@
 var Recursive;
-var _ = lodash;
 
 Recursive = (function() {
   function Recursive() {}
@@ -30,8 +29,8 @@ Recursive = (function() {
       switch (schema.value_type) {
         case "oid":
           a = DATA.findOne({
-            document_name: value,
-            document_schema: schema.value_schema
+            doc_name: value,
+            doc_schema: schema.value_schema
           });
           r_value = a._id;
           break;
@@ -62,8 +61,8 @@ Recursive = (function() {
           while (index < value.length) {
             if (value[index] !== '' && value[index] !== void 0) {
               a = DATA.findOne({
-                document_name: value[index],
-                document_schema: schema.value_schema
+                doc_name: value[index],
+                doc_schema: schema.value_schema
               });
               if (a) {
                 r_value[r_index] = a._id;
@@ -106,27 +105,49 @@ Recursive = (function() {
     return r_value;
   };
 
-  Recursive.prototype.case_obj_s = function(schema, id) {
-    var index, sche;
+  Recursive.prototype.case_obj_s = function(schema, id, pid) {
+    var asche, index, obj_doc, sche, sid;
+    if (schema.schema) {
+      this.s_name = schema.doc_name;
+    }
     sche = schema.schema || schema;
     index = 0;
     while (index < sche.length) {
+      sid = ADATA.insert({
+        a: "a"
+      });
       if (sche[index].value_type === "array") {
         if (sche[index].array_values.value_type === "object") {
-          sche[index].array_values.object_keys = this.case_obj_s(sche[index].array_values.object_keys, id);
+          sche[index].array_values.object_keys = this.case_obj_s(sche[index].array_values.object_keys, id, sid);
         } else {
-          if (sche[index].array_values.value_schema !== "document_schema" && sche[index].array_values.value_schema !== void 0) {
+          if (sche[index].array_values.value_schema !== "doc_schema" && sche[index].array_values.value_schema !== void 0) {
             sche[index].array_values.value_schema = id[sche[index].array_values.value_schema];
           }
         }
       } else {
-        if (sche[index].value_schema !== "document_schema" && sche[index].value_schema !== void 0) {
+        if (sche[index].value_schema !== "doc_schema" && sche[index].value_schema !== void 0) {
           sche[index].value_schema = id[sche[index].value_schema];
         }
       }
       if (sche[index].value_type === "object") {
-        sche[index].object_keys = this.case_obj_s(sche[index].object_keys, id);
+        sche[index].object_keys = this.case_obj_s(sche[index].object_keys, id, sid);
       }
+      obj_doc = {
+        p_doc_schema: this.s_name,
+        doc_schema: "schema_piece",
+        parent: pid || "root"
+      };
+      asche = _.merge(obj_doc, sche[index]);
+      delete asche.object_keys;
+      if (asche.array_values) {
+        delete asche.array_values.object_keys;
+      }
+      ADATA.update({
+        _id: sid
+      }, asche);
+      sche[index] = _.merge(sche[index], {
+        _sid: sid
+      });
       index++;
     }
     if (schema.schema) {
@@ -141,7 +162,7 @@ Recursive = (function() {
     var a, index, key_name, obj, r_value, sche, value_type;
     if (!schema) {
       sche = DATA.findOne({
-        _id: object.document_schema
+        _id: object.doc_schema
       });
       schema = sche.schema;
     }
@@ -171,7 +192,7 @@ Recursive = (function() {
           a = DATA.findOne({
             _id: value
           });
-          r_value = a.document_name;
+          r_value = a.doc_name;
           break;
         case "string":
           r_value = value;
@@ -203,7 +224,7 @@ Recursive = (function() {
                 _id: value[index]
               });
               if (a) {
-                r_value[r_index] = a.document_name;
+                r_value[r_index] = a.doc_name;
                 r_index++;
               } else {
                 console.warn("cannot find " + value[index]);

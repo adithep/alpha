@@ -1,0 +1,127 @@
+head
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  title αSΨS
+
+body
+  {{>dbody}}
+
+template(name="layout")
+  div(id="parent")
+    nav(class="top-bar", data-topbar)
+      ul(class="title-area")
+        li(class="name")
+          h1
+            a(href="/") αSΨS
+        li(class="toggle-topbar menu-icon")
+          a
+            span Menu
+      section(class="top-bar-section")
+        ul(class="left")
+          li(class="divider")
+          li
+            a(data-path="an", href="/moduletest") moduleTest
+          li
+            a(data-path="an", href="/add_contact") Add Contact
+          li
+            a(data-path="an", href="/display_contact") Display Contact
+        ul(class="right")
+          li(class="divider")
+          li(class="has-dropdown")
+            a User : {{currentUser.username}}
+            ul(class="dropdown")
+              li
+                a(id="logout") logout
+    div(class="row", id="yieldchild")
+      div(class="large-12 columns")
+        {{> dyield}}
+
+template(name="dbody")
+  {{#if currentUser.username}}
+  {{> layout}}
+  {{else}}
+  {{> login}}
+  {{/if}}
+
+template(name="moduletest")
+  h1 αSΨS
+  h2 moduletest
+template(name="sorry_man")
+  h1 Cannot find anytin in this path!!! Panic!!! What to do??
+
+template(name="add_contact")
+
+  ul(class="button-group radius")
+    {{>_each_schema}}
+  form(class="contact_form")
+    div(class="row")
+      {{#each input_element}}
+      div(class="large-{{this.input_size}} columns left parentdiv", data-sid="{{this._id._str}}")
+        div(class="row collapse")
+          {{#each this.form_element}}
+          {{#if object_keys_arr}}
+          div(class="small-{{this.select_small_size}} columns")
+            select(name="{{this.key_name}}", data-sid="{{this._sid._str}}")
+              {{#each select_options_arr this._sid}}
+              option(value="{{this._id._str}}") {{this.select_opt_name}}
+              {{/each}}
+          {{/if}}
+          {{#if this.input}}
+          div(class="small-{{this.input_small_size}} columns")
+            input(name="{{key_name}}", type="{{this.input_type}}", placeholder="{{this.input_placeholder}}", data-sid="{{this._sid._str}}")
+            div(data-alert, class="alert-box alaa warning")
+              span invalid
+          {{/if}}
+          {{#if select}}
+          div(class="small-{{this.input_small_size}} columns")
+            select(name="{{this.key_name}}", data-sid="{{this._sid._str}}")
+              {{#each select_options this._sid}}
+              option(value="{{this._id._str}}") {{this.doc_name}}
+              {{/each}}
+          {{/if}}
+          {{/each}}
+          {{#unless input_starting}}
+          div(class="small-1 columns")
+            a(class="button postfix close_input", data-id="{{this._id._str}}") X
+          {{/unless}}
+      {{/each}}
+    a(class="button form_submit") Submit
+template(name="_each_schema")
+  {{#each schema}}
+  {{>_schema}}
+  {{/each}}
+
+template(name="_schema")
+  li
+    a(class="button small click-input", data-id="{{this._id._str}}") {{this.button_name}}
+
+template(name="login")
+  div(class="row", id="logindiv")
+    div(class="large-12 columns")
+      h1 Login
+      {{#if currentUser.username}}
+      {{else}}
+      {{#if loggingIn}}
+      p Logging in...
+      {{else}}
+      {{#if creatingAccount}}
+      {{>newAccountForm}}
+      {{else}}
+      {{>loginForm}}
+      {{/if}}
+      {{/if}}
+      {{/if}}
+
+template(name="newAccountForm")
+  input(type="text", id="email", placeholder="email")
+  input(type="text", id="name", placeholder="name")
+  input(type="text", id="username", placeholder="username")
+  input(type="password", id="password", placeholder="password")
+  button(id="createaccount") Create
+  p(id="loginform") (Login)
+
+template(name="loginForm")
+  input(type="text", id="username", placeholder="username")
+  input(type="password", id="password", placeholder="password")
+  button(id="login") Login
+  br
+  button(id="accountform") Create Account

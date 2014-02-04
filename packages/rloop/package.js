@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api, where) {
   api.use('lodash');
-  api.add_files('rloop.js', ['client', 'server']);
+  api.add_files('rloop.js', 'server');
   api.export('re', 'server');
 });
 

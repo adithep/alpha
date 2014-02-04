@@ -1,10 +1,10 @@
 [
   {
-    "document_name": "Line Producer",
-    "document_schema": "services"
+    "doc_name": "Line Producer",
+    "doc_schema": "services"
   },
   {
-    "document_name": "DOP",
-    "document_schema": "services"
+    "doc_name": "DOP",
+    "doc_schema": "services"
   }
 ]

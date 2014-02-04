@@ -1,6 +1,4 @@
-var Json_Doc, _;
-
-_ = lodash;
+var Json_Doc;
 
 Json_Doc = (function() {
   function Json_Doc(id) {
@@ -17,7 +15,7 @@ Json_Doc = (function() {
       if (schema[index].schema) {
         schema[index] = re.case_obj_s(schema[index], this.id);
       }
-      this.id[schema[index].document_name] = DATA.insert(schema[index]);
+      this.id[schema[index].doc_name] = DATA.insert(schema[index]);
       index++;
     }
     console.log("" + json + " inserted");
@@ -43,9 +41,9 @@ Json_Doc = (function() {
     var _this = this;
     if (Object.keys(this.id).length === 0) {
       DATA.find({
-        document_schema: "document_schema"
+        doc_schema: "doc_schema"
       }).forEach(function(doc) {
-        _this.id[doc.document_name] = doc._id;
+        _this.id[doc.doc_name] = doc._id;
       });
     }
     if (this.id[doc_name]) {
@@ -61,7 +59,7 @@ Json_Doc = (function() {
 
 DATA.after.insert(function(userid, doc) {
   var a;
-  if (doc.document_schema !== "document_schema") {
+  if (doc.doc_schema !== "doc_schema") {
     a = re.case_switch_o(doc);
     _.extend(a, {
       _id: this._id
@@ -69,39 +67,89 @@ DATA.after.insert(function(userid, doc) {
     ADATA.upsert({
       _id: this._id
     }, a);
-    return console.log("" + doc.document_name + " inserted");
+    return console.log("" + doc.doc_name + " inserted");
+  } else if (doc.doc_schema === "doc_schema") {
+    return ADATA.update({
+      p_doc_schema: doc.doc_name
+    }, {
+      $set: {
+        p_doc_schema: this._id
+      }
+    }, {
+      multi: true
+    });
   }
 });
 
+Meteor.publish("list", function() {
+  var b, c, currencies, services, titles;
+  b = ADATA.find({
+    p_doc_schema: {
+      $exists: true
+    }
+  });
+  titles = DATA.findOne({
+    doc_schema: "doc_schema",
+    doc_name: "titles"
+  });
+  currencies = DATA.findOne({
+    doc_schema: "doc_schema",
+    doc_name: "currencies"
+  });
+  services = DATA.findOne({
+    doc_schema: "doc_schema",
+    doc_name: "services"
+  });
+  c = DATA.find({
+    $or: [
+      {
+        doc_schema: "doc_schema"
+      }, {
+        doc_schema: titles._id
+      }, {
+        doc_schema: currencies._id
+      }, {
+        doc_schema: services._id
+      }
+    ]
+  }, {
+    fields: {
+      doc_schema: 1,
+      doc_name: 1
+    }
+  });
+  return [b, c];
+});
+
 Meteor.startup(function() {
-  var document_json;
-  document_json = new Json_Doc();
+  var doc_json;
+  doc_json = new Json_Doc();
   if (DATA.find({
-    document_schema: "document_schema"
+    doc_schema: "doc_schema"
   }).count() === 0) {
     DATA.remove({});
   }
   if (DATA.find().count() === 0) {
-    document_json.insert_schema('schema_array');
+    doc_json.insert_schema('schema_array');
   }
   if (DATA.find({
-    document_schema: document_json.get_schema_id('currencies')
+    doc_schema: doc_json.get_schema_id('currencies')
   }).count() === 0) {
-    document_json.insert_json('currencies', 'currencies');
+    doc_json.insert_json('currencies', 'currencies');
   }
   if (DATA.find({
-    document_schema: document_json.get_schema_id('countries')
+    doc_schema: doc_json.get_schema_id('countries')
   }).count() === 0) {
-    document_json.insert_json('countries', 'countries');
+    doc_json.insert_json('countries', 'countries');
   }
   if (DATA.find({
-    document_schema: document_json.get_schema_id('titles')
+    doc_schema: doc_json.get_schema_id('titles')
   }).count() === 0) {
-    document_json.insert_json('titles', 'titles');
+    doc_json.insert_json('titles', 'titles');
   }
   if (DATA.find({
-    document_schema: document_json.get_schema_id('services')
+    doc_schema: doc_json.get_schema_id('services')
   }).count() === 0) {
-    return document_json.insert_json('services', 'services');
+    return doc_json.insert_json('services', 'services');
   }
 });

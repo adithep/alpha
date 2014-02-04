@@ -1,15 +1,25 @@
 {
   "packages": {
     "npm": {},
-    "iron-router": {},
     "mongodb-server-aggregation": {},
     "rloop": {
-      "path": "/Users/alpha/Desktop/αSYS/packages/rloop"
+      "path": "../packages/rloop"
     },
     "lodash": {
-      "path": "/Users/alpha/Desktop/αSYS/packages/lodash"
+      "path": "../packages/lodash"
     },
-    "zurb-foundation": {},
+    "core-layout": {
+      "path": "../packages/core-layout"
+    },
+    "human-insert-form": {
+      "path": "../packages/human-insert-form"
+    },
+    "data-lib": {
+      "path": "../packages/data-lib"
+    },
+    "phoneformat": {
+      "path": "../packages/phoneformat"
+    },
     "collection-hooks": {}
   }
 }

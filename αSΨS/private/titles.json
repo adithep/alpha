@@ -1,10 +1,10 @@
 [
   {
-    "document_name": "Mr.",
-    "document_schema": "titles"
+    "doc_name": "Mr.",
+    "doc_schema": "titles"
   },
   {
-    "document_name": "Ms.",
-    "document_schema": "titles"
+    "doc_name": "Ms.",
+    "doc_schema": "titles"
   }
 ]
