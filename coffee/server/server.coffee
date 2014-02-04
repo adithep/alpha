@@ -1,3 +1,4 @@
+_ = lodash
 class Json_Doc
   constructor: (@id) ->
     @id = {}
@@ -46,13 +47,89 @@ DATA.after.insert (userid, doc) ->
   else if doc.doc_schema is "doc_schema"
     ADATA.update({p_doc_schema: doc.doc_name}, {$set: {p_doc_schema: this._id}}, {multi: true})
 
+
+Meteor.methods
+
+  insert_human: (array) ->
+    index  = 0
+    mobj = {}
+    while index < array.length
+      indy = 0
+      obj = {}
+      while indy < array[index].length
+        wow = array[index]
+        doc = ADATA.findOne(_id: wow[indy].id)
+        if doc.object_keys_arr
+          doc = ADATA.findOne(_id: wow[0].value)
+          wow[0].value = wow[1].value
+          wow.pop()
+        k = genius(doc, wow[indy].value)
+        obj = merge(obj, k)
+        indy++
+      mobj = mergea(mobj, obj)
+      index++
+    console.log mobj
+    return
+
+genius = (doc, value) ->
+  obj = {}
+  mobj = {}
+  if doc.parent is 'root'
+    switch doc.value_type
+      when 'object'
+        obj[doc.key_name] = value
+      when 'array'
+        if obj[doc.key_name] is undefined
+          obj[doc.key_name] = []
+        obj[doc.key_name].push(value)
+      when 'string'
+        obj[doc.key_name] = String(value)
+      when 'number'
+        obj[doc.key_name] = Number(value)
+      when 'oid'
+        obj[doc.key_name] = value
+      when 'currency'
+        obj[doc.key_name] = Number(value) * 100
+      when 'date'
+        obj[doc.key_name] = new Date(value)
+  else
+    switch doc.value_type
+      when 'object'
+        mobj[doc.key_name] = value
+      when 'array'
+        if mobj[doc.key_name] is undefined
+          mobj[doc.key_name] = []
+        mobj[doc.key_name].push(value)
+      when 'string'
+        mobj[doc.key_name] = String(value)
+      when 'number'
+        mobj[doc.key_name] = Number(value)
+      when 'oid'
+        mobj[doc.key_name] = value
+      when 'currency'
+        mobj[doc.key_name] = Number(value) * 100
+      when 'date'
+        mobj[doc.key_name] = new Date(value)
+    parent = ADATA.findOne(_id: doc.parent)
+    k = genius(parent, mobj)
+    _.merge(obj, k)
+  obj
+
+
 Meteor.publish "list", ->
   b = ADATA.find({p_doc_schema: {$exists: true}})
   titles = DATA.findOne(doc_schema: "doc_schema", doc_name: "titles")
   currencies = DATA.findOne({doc_schema: "doc_schema", doc_name: "currencies"})
   services = DATA.findOne(doc_schema: "doc_schema", doc_name: "services")
-  c = DATA.find({$or: [{doc_schema: "doc_schema"}, {doc_schema: titles._id}, {doc_schema: currencies._id}, {doc_schema: services._id}]}, {fields: {doc_schema: 1, doc_name: 1} })
+  c = DATA.find({$or: [{doc_schema: "doc_schema"}, {doc_schema: titles._id}, {doc_schema: currencies._id}, {doc_schema: services._id}]}, {fields: {doc_schema: 1, doc_name: 1, default: 1} })
   [b, c]
+
+Meteor.publish "cities_list", (args) ->
+  if args.input
+    d = new Meteor.Collection.ObjectID(args.field)
+    b = DATA.findOne(_id: d)
+    ADATA.find({$and: [{doc_schema: b.doc_name}, $or: [{doc_name: { $regex: args.input, $options: 'i' }}, {country: { $regex: args.input, $options: 'i' }}]]}, { limit: 5, fields: {doc_name: 1, country: 1, doc_schema: 1} } )
+
 
 Meteor.startup ->
 
@@ -75,4 +152,7 @@ Meteor.startup ->
 
   if DATA.find(doc_schema: doc_json.get_schema_id('services')).count() is 0
     doc_json.insert_json('services', 'services')
+
+  if DATA.find(doc_schema: doc_json.get_schema_id('cities')).count() is 0
+    doc_json.insert_json('cities', 'cities')
 

@@ -1,8 +1,16 @@
-var HUMAN_FORM, ojts;
+var CITIES, HUMAN_FORM, ojts, pargs;
 
 HUMAN_FORM = new Meteor.Collection(null, {
   idGeneration: "MONGO"
 });
+
+CITIES = new Meteor.Collection(null, {
+  idGeneration: "MONGO"
+});
+
+pargs = {};
+
+pargs.session = false;
 
 Deps.autorun(function() {
   var human, sub_list;
@@ -108,6 +116,16 @@ UI.body.events({
   },
   'click #logout': function(e, t) {
     return Meteor.logout();
+  }
+});
+
+UI.body.helpers({
+  today_isodate: function() {
+    var a, b;
+    a = new Date();
+    a.setHours(0, -a.getTimezoneOffset(), 0, 0);
+    b = a.toISOString().substring(0, 10);
+    return b;
   }
 });
 
@@ -228,7 +246,7 @@ Template.add_contact.events({
     }
   },
   'click .contact_form .form_submit': function(e, t) {
-    var arr, barr, id, index, index_p, input, oid, parentdiv, value;
+    var arr, barr, id, index, index_p, input, parentdiv, value;
     arr = [];
     index_p = 0;
     parentdiv = t.findAll('.parentdiv');
@@ -240,6 +258,8 @@ Template.add_contact.events({
         id = new Meteor.Collection.ObjectID(input[index].dataset.sid);
         if (input[index].localName === 'select') {
           value = new Meteor.Collection.ObjectID(input[index].value);
+        } else if ($(input[index]).hasClass('input_select')) {
+          value = new Meteor.Collection.ObjectID(input[index].dataset.value);
         } else {
           value = input[index].value;
         }
@@ -249,14 +269,148 @@ Template.add_contact.events({
         };
         index++;
       }
-      oid = new Meteor.Collection.ObjectID(parentdiv[index_p].dataset.sid);
-      arr[index_p] = {
-        arr: barr,
-        id: oid
-      };
+      arr[index_p] = barr;
       index_p++;
     }
-    return console.log(arr);
+    console.log(arr);
+    return Meteor.call("insert_human", arr);
+  },
+  'focus .contact_form .input_select': function(e, t) {
+    if (e.currentTarget.value === "") {
+      return $('.input_select_box').hide();
+    } else {
+      return $('.input_select_box').show();
+    }
+  },
+  'blur .contact_form .input_select': function(e, t) {
+    if (e.currentTarget.value !== "") {
+      if ($('.blue_color').html()) {
+        e.currentTarget.value = $('.blue_color').html();
+        e.currentTarget.dataset.value = $('.blue_color').data('value');
+      }
+      if (e.currentTarget.dataset.value === "") {
+        e.currentTarget.value = "";
+      }
+    } else {
+      e.currentTarget.value = "";
+      e.currentTarget.dataset.value = "";
+    }
+    $('.input_select_box').hide();
+  },
+  'mouseover .contact_form .lala_item': function(e, t) {
+    var b;
+    $('.lala_item').removeClass('blue_color');
+    $(e.target).addClass('blue_color');
+    b = $(e.target).html();
+    return $('.input_select').val(b);
+  },
+  'click .contact_form .input_select': function(e, t) {
+    var params, subs;
+    if (e.currentTarget.value !== "") {
+      $('.input_select_box').show();
+      params = {
+        input: e.currentTarget.value,
+        field: e.currentTarget.dataset.schema
+      };
+      subs = Meteor.subscribe("cities_list", params);
+      if (pargs.session) {
+        pargs.session.stop();
+      }
+      pargs.session = subs;
+    }
+  },
+  'keyup .contact_form .input_select': function(e, t) {
+    var b, d, params;
+    if (e.which === 40) {
+      if ($('.lala_item').hasClass("blue_color") === false) {
+        $('.input_select_list li:first-child').addClass("blue_color");
+      } else {
+        $(".blue_color").removeClass("blue_color").next().addClass("blue_color");
+      }
+      b = $(".blue_color").html();
+      if (b) {
+        e.currentTarget.value = b;
+      }
+    } else if (e.which === 38) {
+      if ($('.lala_item').hasClass("blue_color") === false) {
+        $('.input_select_list li:first-child').addClass("blue_color");
+      } else {
+        $(".blue_color").removeClass("blue_color").prev().addClass("blue_color");
+      }
+      b = $(".blue_color").html();
+      if (b) {
+        e.currentTarget.value = b;
+      }
+    } else if (e.which === 13) {
+      if ($('.lala_item').hasClass("blue_color")) {
+        d = $(".blue_color").html();
+        if (d) {
+          e.currentTarget.value = d;
+          e.currentTarget.dataset.value = $('.blue_color').data('value');
+        }
+      }
+      $('.input_select_box').hide();
+      if (pargs.session) {
+        return pargs.session.stop();
+      }
+    } else if (e.which === 27) {
+      e.currentTarget.value = "";
+      e.currentTarget.dataset.value = "";
+      $('.input_select_box').hide();
+      if (pargs.session) {
+        return pargs.session.stop();
+      }
+    } else {
+      if (e.currentTarget.value === "") {
+        $('.input_select_box').hide();
+      } else {
+        $('.input_select_box').show();
+      }
+      if (e.currentTarget.value !== "") {
+        params = {
+          input: e.currentTarget.value,
+          field: e.currentTarget.dataset.schema
+        };
+        Meteor.subscribe("cities_list", params, function() {
+          var a, city_schema;
+          d = new Meteor.Collection.ObjectID(e.currentTarget.dataset.schema);
+          city_schema = DATA.findOne({
+            _id: d
+          });
+          a = ADATA.find({
+            $and: [
+              {
+                doc_schema: city_schema.doc_name
+              }, {
+                $or: [
+                  {
+                    doc_name: {
+                      $regex: params.input,
+                      $options: 'i'
+                    }
+                  }, {
+                    country: {
+                      $regex: params.input,
+                      $options: 'i'
+                    }
+                  }
+                ]
+              }
+            ]
+          }, {
+            limit: 5
+          }).fetch();
+          if (a) {
+            console.log(a);
+            a[0].e_class = "blue_color";
+            CITIES.remove({});
+            return _.map(a, function(obj) {
+              return CITIES.insert(obj);
+            });
+          }
+        });
+      }
+    }
   }
 });
 
@@ -278,6 +432,9 @@ Template.add_contact.helpers({
   },
   input_element: function() {
     return HUMAN_FORM.find();
+  },
+  input_select_helper: function() {
+    return CITIES.find();
   },
   select_options: function(id) {
     var piece;

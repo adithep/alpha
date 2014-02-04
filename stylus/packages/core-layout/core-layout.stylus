@@ -15,3 +15,17 @@ small.error
   text-align: center
 .yo
   display: inline-block
+
+.input_select_box
+  position: absolute
+  display: none
+  z-index: 5
+  top: 38px
+  padding: 5px
+  width: 100%
+.input_select_list
+  list-style-type: none
+  margin: 0
+.blue_color
+  background-color: blue
+  color: white

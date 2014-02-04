@@ -6787,3 +6787,4 @@
 }.call(this));
 
 _ = this._;
+lodash = this._;

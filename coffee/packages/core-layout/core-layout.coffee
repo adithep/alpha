@@ -1,4 +1,7 @@
 HUMAN_FORM = new Meteor.Collection(null, idGeneration: "MONGO")
+CITIES = new Meteor.Collection(null, {idGeneration:"MONGO"})
+pargs = {}
+pargs.session = false
 
 Deps.autorun ->
   if Meteor.user()
@@ -67,6 +70,13 @@ UI.body.events
     $(e.currentTarget).hide()
   'click #logout': (e, t) ->
     Meteor.logout()
+
+UI.body.helpers
+  today_isodate: ->
+    a = new Date()
+    a.setHours(0, -a.getTimezoneOffset(), 0, 0)
+    b = a.toISOString().substring(0, 10)
+    b
 
 Template.add_contact.events
   'click .click-input': (e, t) ->
@@ -167,14 +177,120 @@ Template.add_contact.events
         id = new Meteor.Collection.ObjectID(input[index].dataset.sid)
         if input[index].localName is 'select'
           value = new Meteor.Collection.ObjectID(input[index].value)
+        else if $(input[index]).hasClass('input_select')
+          value = new Meteor.Collection.ObjectID(input[index].dataset.value)
         else
           value = input[index].value
         barr[index] = {id: id, value: value}
         index++
-      oid = new Meteor.Collection.ObjectID(parentdiv[index_p].dataset.sid)
-      arr[index_p] = arr: barr, id: oid
+      arr[index_p] = barr
       index_p++
     console.log arr
+    Meteor.call "insert_human", arr
+
+  'focus .contact_form .input_select': (e, t) ->
+    if e.currentTarget.value is ""
+      $('.input_select_box').hide()
+    else
+      $('.input_select_box').show()
+
+  'blur .contact_form .input_select': (e, t) ->
+    if e.currentTarget.value isnt ""
+      if $('.blue_color').html()
+        e.currentTarget.value = $('.blue_color').html()
+        e.currentTarget.dataset.value = $('.blue_color').data('value')
+      if e.currentTarget.dataset.value is ""
+        e.currentTarget.value = ""
+    else
+      e.currentTarget.value = ""
+      e.currentTarget.dataset.value = ""
+    $('.input_select_box').hide()
+    return
+
+  'mouseover .contact_form .lala_item': (e, t) ->
+    $('.lala_item').removeClass('blue_color')
+    $(e.target).addClass('blue_color')
+    b = $(e.target).html()
+    $('.input_select').val(b)
+
+  'click .contact_form .input_select': (e, t) ->
+    if e.currentTarget.value isnt ""
+
+      $('.input_select_box').show()
+          
+      params = {input: e.currentTarget.value, field: e.currentTarget.dataset.schema}
+
+      subs = Meteor.subscribe "cities_list", params
+        
+      if pargs.session
+        pargs.session.stop()
+
+      pargs.session = subs
+      return
+
+  'keyup .contact_form .input_select': (e, t) ->
+    if e.which is 40
+      if $('.lala_item').hasClass("blue_color") is false
+        $('.input_select_list li:first-child').addClass("blue_color")
+      else
+        $(".blue_color").removeClass("blue_color").next().addClass("blue_color")
+
+      b = $(".blue_color").html()
+      if b
+        e.currentTarget.value = b
+      return
+
+    else if e.which is 38
+      if $('.lala_item').hasClass("blue_color") is false
+        $('.input_select_list li:first-child').addClass("blue_color")
+      else
+        $(".blue_color").removeClass("blue_color").prev().addClass("blue_color")
+
+      b = $(".blue_color").html()
+      if b
+        e.currentTarget.value = b
+      return
+    else if e.which is 13
+      if $('.lala_item').hasClass("blue_color")
+        d = $(".blue_color").html()
+        if d
+          e.currentTarget.value = d
+          e.currentTarget.dataset.value = $('.blue_color').data('value')
+      $('.input_select_box').hide()
+      if pargs.session
+        pargs.session.stop()
+
+    else if e.which is 27
+      e.currentTarget.value = ""
+      e.currentTarget.dataset.value = ""
+      $('.input_select_box').hide()
+      if pargs.session
+        pargs.session.stop()
+
+    else
+      if e.currentTarget.value is ""
+        $('.input_select_box').hide()
+      else
+        
+        $('.input_select_box').show()
+
+      if e.currentTarget.value isnt ""
+          
+
+        params = {input: e.currentTarget.value, field: e.currentTarget.dataset.schema}
+
+        Meteor.subscribe "cities_list", params, ->
+          d = new Meteor.Collection.ObjectID(e.currentTarget.dataset.schema)
+          city_schema = DATA.findOne(_id: d)
+          a = ADATA.find({$and: [{doc_schema: city_schema.doc_name}, $or: [{doc_name: { $regex: params.input, $options: 'i' }}, {country: { $regex: params.input, $options: 'i' }}]]}, { limit: 5} ).fetch()
+          if a
+            console.log a
+            a[0].e_class = "blue_color"
+            CITIES.remove({})
+            _.map a, (obj) ->
+              CITIES.insert(obj)
+          
+        return
 
 
 Template.add_contact.helpers
@@ -184,6 +300,9 @@ Template.add_contact.helpers
       ADATA.find({p_doc_schema: human._id, button_name: {$exists: true}})
   input_element: ->
     HUMAN_FORM.find()
+
+  input_select_helper: ->
+    CITIES.find()
 
   select_options: (id) ->
     piece = ADATA.findOne(_id: id)

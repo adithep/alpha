@@ -39,6 +39,10 @@
         "key_name": "usd_exchange_rate"
       },
       {
+        "value_type": "number",
+        "key_name": "default"
+      },
+      {
         "value_type": "string",
         "key_name": "symbol"
       },
@@ -357,6 +361,7 @@
               "value_type": "date",
               "input_type": "date",
               "input": true,
+              "input_today": true,
               "input_size": 2,
               "input_small_size": 3,
               "key_name": "date_of_entry"

@@ -1,4 +1,6 @@
-var Json_Doc;
+var Json_Doc, genius, _;
+
+_ = lodash;
 
 Json_Doc = (function() {
   function Json_Doc(id) {
@@ -81,6 +83,102 @@ DATA.after.insert(function(userid, doc) {
   }
 });
 
+Meteor.methods({
+  insert_human: function(array) {
+    var doc, index, indy, k, mobj, obj, wow;
+    index = 0;
+    mobj = {};
+    while (index < array.length) {
+      indy = 0;
+      obj = {};
+      while (indy < array[index].length) {
+        wow = array[index];
+        doc = ADATA.findOne({
+          _id: wow[indy].id
+        });
+        if (doc.object_keys_arr) {
+          doc = ADATA.findOne({
+            _id: wow[0].value
+          });
+          wow[0].value = wow[1].value;
+          wow.pop();
+        }
+        k = genius(doc, wow[indy].value);
+        obj = merge(obj, k);
+        indy++;
+      }
+      mobj = mergea(mobj, obj);
+      index++;
+    }
+    console.log(mobj);
+  }
+});
+
+genius = function(doc, value) {
+  var k, mobj, obj, parent;
+  obj = {};
+  mobj = {};
+  if (doc.parent === 'root') {
+    switch (doc.value_type) {
+      case 'object':
+        obj[doc.key_name] = value;
+        break;
+      case 'array':
+        if (obj[doc.key_name] === void 0) {
+          obj[doc.key_name] = [];
+        }
+        obj[doc.key_name].push(value);
+        break;
+      case 'string':
+        obj[doc.key_name] = String(value);
+        break;
+      case 'number':
+        obj[doc.key_name] = Number(value);
+        break;
+      case 'oid':
+        obj[doc.key_name] = value;
+        break;
+      case 'currency':
+        obj[doc.key_name] = Number(value) * 100;
+        break;
+      case 'date':
+        obj[doc.key_name] = new Date(value);
+    }
+  } else {
+    switch (doc.value_type) {
+      case 'object':
+        mobj[doc.key_name] = value;
+        break;
+      case 'array':
+        if (mobj[doc.key_name] === void 0) {
+          mobj[doc.key_name] = [];
+        }
+        mobj[doc.key_name].push(value);
+        break;
+      case 'string':
+        mobj[doc.key_name] = String(value);
+        break;
+      case 'number':
+        mobj[doc.key_name] = Number(value);
+        break;
+      case 'oid':
+        mobj[doc.key_name] = value;
+        break;
+      case 'currency':
+        mobj[doc.key_name] = Number(value) * 100;
+        break;
+      case 'date':
+        mobj[doc.key_name] = new Date(value);
+    }
+    parent = ADATA.findOne({
+      _id: doc.parent
+    });
+    k = genius(parent, mobj);
+    _.merge(obj, k);
+  }
+  return obj;
+};
+
 Meteor.publish("list", function() {
   var b, c, currencies, services, titles;
   b = ADATA.find({
@@ -115,10 +213,49 @@ Meteor.publish("list", function() {
   }, {
     fields: {
       doc_schema: 1,
-      doc_name: 1
+      doc_name: 1,
+      "default": 1
     }
   });
   return [b, c];
+});
+
+Meteor.publish("cities_list", function(args) {
+  var b, d;
+  if (args.input) {
+    d = new Meteor.Collection.ObjectID(args.field);
+    b = DATA.findOne({
+      _id: d
+    });
+    return ADATA.find({
+      $and: [
+        {
+          doc_schema: b.doc_name
+        }, {
+          $or: [
+            {
+              doc_name: {
+                $regex: args.input,
+                $options: 'i'
+              }
+            }, {
+              country: {
+                $regex: args.input,
+                $options: 'i'
+              }
+            }
+          ]
+        }
+      ]
+    }, {
+      limit: 5,
+      fields: {
+        doc_name: 1,
+        country: 1,
+        doc_schema: 1
+      }
+    });
+  }
 });
 
 Meteor.startup(function() {
@@ -150,6 +287,11 @@ Meteor.startup(function() {
   if (DATA.find({
     doc_schema: doc_json.get_schema_id('services')
   }).count() === 0) {
-    return doc_json.insert_json('services', 'services');
+    doc_json.insert_json('services', 'services');
+  }
+  if (DATA.find({
+    doc_schema: doc_json.get_schema_id('cities')
+  }).count() === 0) {
+    return doc_json.insert_json('cities', 'cities');
   }
 });

@@ -32,7 +32,11 @@ Recursive = (function() {
             doc_name: value,
             doc_schema: schema.value_schema
           });
-          r_value = a._id;
+          if (a) {
+            r_value = a._id;
+          } else {
+            console.warn("cannot find " + value);
+          }
           break;
         case "string":
           r_value = String(value);

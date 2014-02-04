@@ -23,7 +23,11 @@ class Recursive
       switch schema.value_type
         when "oid"
           a = DATA.findOne(doc_name: value, doc_schema: schema.value_schema)
-          r_value = a._id
+          if a
+            r_value = a._id
+          else
+            console.warn "cannot find #{value}"
+
         when "string" then r_value = String(value)
         when "number" then r_value = Number(value)
         when "array"
