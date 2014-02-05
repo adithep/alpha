@@ -1,7 +1,6 @@
 {
   "packages": {
     "npm": {},
-    "mongodb-server-aggregation": {},
     "rloop": {
       "path": "../packages/rloop"
     },
@@ -19,6 +18,9 @@
     },
     "phoneformat": {
       "path": "../packages/phoneformat"
+    },
+    "mongo-aggregation": {
+      "path": "../packages/mongo-aggregation"
     },
     "collection-hooks": {}
   }

@@ -66,10 +66,15 @@ DATA.after.insert(function(userid, doc) {
     _.extend(a, {
       _id: this._id
     });
+    console.log(a);
     ADATA.upsert({
       _id: this._id
     }, a);
-    return console.log("" + doc.doc_name + " inserted");
+    if (doc.doc_name) {
+      return console.log("" + doc.doc_name + " inserted");
+    } else {
+      return console.log("document inserted");
+    }
   } else if (doc.doc_schema === "doc_schema") {
     return ADATA.update({
       p_doc_schema: doc.doc_name
@@ -83,9 +88,24 @@ DATA.after.insert(function(userid, doc) {
   }
 });
 
+DATA.before.insert(function(userid, doc) {
+  var a;
+  if (userid) {
+    a = {
+      created: {
+        user: userid,
+        date: new Date()
+      }
+    };
+    _.extend(doc, a);
+    console.log(doc);
+    return doc;
+  }
+});
+
 Meteor.methods({
   insert_human: function(array) {
-    var doc, index, indy, k, mobj, obj, wow;
+    var doc, human_schema, index, indy, k, mobj, obj, wow;
     index = 0;
     mobj = {};
     while (index < array.length) {
@@ -110,6 +130,12 @@ Meteor.methods({
       mobj = mergea(mobj, obj);
       index++;
     }
+    human_schema = DATA.findOne({
+      doc_schema: "doc_schema",
+      doc_name: "humans"
+    });
+    mobj.doc_schema = human_schema._id;
+    DATA.insert(mobj);
     console.log(mobj);
   }
 });
@@ -180,12 +206,7 @@ genius = function(doc, value) {
 };
 
 Meteor.publish("list", function() {
-  var b, c, currencies, services, titles;
-  b = ADATA.find({
-    p_doc_schema: {
-      $exists: true
-    }
-  });
+  var cities_arr, currencies, humans, services, titles;
   titles = DATA.findOne({
     doc_schema: "doc_schema",
     doc_name: "titles"
@@ -198,12 +219,21 @@ Meteor.publish("list", function() {
     doc_schema: "doc_schema",
     doc_name: "services"
   });
-  c = DATA.find({
+  humans = DATA.findOne({
+    doc_schema: "doc_schema",
+    doc_name: "humans"
+  });
+  cities_arr = DATA.distinct("city", {
+    doc_schema: humans._id
+  });
+  return ADATA.find({
     $or: [
       {
-        doc_schema: "doc_schema"
-      }, {
         doc_schema: titles._id
+      }, {
+        _id: {
+          $in: cities_arr
+        }
       }, {
         doc_schema: currencies._id
       }, {
@@ -214,23 +244,33 @@ Meteor.publish("list", function() {
     fields: {
       doc_schema: 1,
       doc_name: 1,
-      "default": 1
+      "default": 1,
+      country: 1
     }
+  });
+});
+
+Meteor.publish("schema", function() {
+  var b, c;
+  b = ADATA.find({
+    p_doc_schema: {
+      $exists: true
+    }
+  });
+  c = DATA.find({
+    doc_schema: "doc_schema"
   });
   return [b, c];
 });
 
 Meteor.publish("cities_list", function(args) {
-  var b, d;
+  var d;
   if (args.input) {
     d = new Meteor.Collection.ObjectID(args.field);
-    b = DATA.findOne({
-      _id: d
-    });
     return ADATA.find({
       $and: [
         {
-          doc_schema: b.doc_name
+          doc_schema: d
         }, {
           $or: [
             {

@@ -42,10 +42,21 @@ DATA.after.insert (userid, doc) ->
   if doc.doc_schema isnt "doc_schema"
     a = re.case_switch_o(doc)
     _.extend(a, {_id: this._id})
+    console.log a
     ADATA.upsert({_id: this._id}, a)
-    console.log "#{doc.doc_name} inserted"
+    if doc.doc_name
+      console.log "#{doc.doc_name} inserted"
+    else
+      console.log "document inserted"
   else if doc.doc_schema is "doc_schema"
     ADATA.update({p_doc_schema: doc.doc_name}, {$set: {p_doc_schema: this._id}}, {multi: true})
+
+DATA.before.insert (userid, doc) ->
+  if userid
+    a = {created: {user: userid, date: new Date()}}
+    _.extend(doc, a)
+    console.log doc
+    doc
 
 
 Meteor.methods
@@ -68,7 +79,11 @@ Meteor.methods
         indy++
       mobj = mergea(mobj, obj)
       index++
+    human_schema = DATA.findOne(doc_schema: "doc_schema", doc_name: "humans")
+    mobj.doc_schema = human_schema._id
+    DATA.insert(mobj)
     console.log mobj
+
     return
 
 genius = (doc, value) ->
@@ -117,18 +132,23 @@ genius = (doc, value) ->
 
 
 Meteor.publish "list", ->
-  b = ADATA.find({p_doc_schema: {$exists: true}})
+  
   titles = DATA.findOne(doc_schema: "doc_schema", doc_name: "titles")
   currencies = DATA.findOne({doc_schema: "doc_schema", doc_name: "currencies"})
   services = DATA.findOne(doc_schema: "doc_schema", doc_name: "services")
-  c = DATA.find({$or: [{doc_schema: "doc_schema"}, {doc_schema: titles._id}, {doc_schema: currencies._id}, {doc_schema: services._id}]}, {fields: {doc_schema: 1, doc_name: 1, default: 1} })
+  humans = DATA.findOne(doc_schema: "doc_schema", doc_name: "humans")
+  cities_arr = DATA.distinct("city", {doc_schema: humans._id})
+  ADATA.find({$or: [{doc_schema: titles._id}, {_id: {$in: cities_arr}}, {doc_schema: currencies._id}, {doc_schema: services._id}]}, {fields: {doc_schema: 1, doc_name: 1, default: 1, country: 1} })
+
+Meteor.publish "schema", ->
+  b = ADATA.find({p_doc_schema: {$exists: true}})
+  c = DATA.find({doc_schema: "doc_schema"})
   [b, c]
 
 Meteor.publish "cities_list", (args) ->
   if args.input
     d = new Meteor.Collection.ObjectID(args.field)
-    b = DATA.findOne(_id: d)
-    ADATA.find({$and: [{doc_schema: b.doc_name}, $or: [{doc_name: { $regex: args.input, $options: 'i' }}, {country: { $regex: args.input, $options: 'i' }}]]}, { limit: 5, fields: {doc_name: 1, country: 1, doc_schema: 1} } )
+    ADATA.find({$and: [{doc_schema: d}, $or: [{doc_name: { $regex: args.input, $options: 'i' }}, {country: { $regex: args.input, $options: 'i' }}]]}, { limit: 5, fields: {doc_name: 1, country: 1, doc_schema: 1} } )
 
 
 Meteor.startup ->

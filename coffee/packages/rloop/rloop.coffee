@@ -135,14 +135,21 @@ class Recursive
     if value isnt '' and value isnt undefined
       switch schema.value_type
         when "oid"
-          a = DATA.findOne(_id: value)
-          r_value = a.doc_name
+          if schema.key_name isnt "doc_schema"
+            a = DATA.findOne(_id: value)
+            r_value = a.doc_name
+          else
+            r_value = value
+        when "email" then r_value = value
         when "string" then r_value = value
+        when "phone" then r_value = value
+        when "date" then r_value = value.toDateString()
         when "number" then r_value = value
+        when "currency" then r_value = value/100
         when "array"
           r_value = @case_arr_o(schema.array_values, value)
         when "object"
-          r_value = @case_switch_o(schema.object_keys, value)
+          r_value = @case_switch_o(value, schema.object_keys)
     r_value
 
   case_arr_o: (schema, value) ->
@@ -163,13 +170,22 @@ class Recursive
             index++
         when "string"
           r_value = value
+        when "email"
+          r_value = value
+        when "phone"
+          r_value = value
         when "number"
           r_value = value
+        when "currency"
+          while index < value.length
+            r_value[index] = value[index]/100
+        when "date"
+          r_value = value.toDateString()
         when "array"
           @case_arr_o(schema.array_values, value)
         when "object"
           while index < value.length
-            r_value[index] = @case_switch_o(schema.object_keys, value[index])
+            r_value[index] = @case_switch_o(value[index], schema.object_keys)
             index++
     r_value
 

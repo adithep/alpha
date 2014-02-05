@@ -5,18 +5,21 @@ pargs.session = false
 
 Deps.autorun ->
   if Meteor.user()
+    sub_sche = Meteor.subscribe "schema"
     sub_list = Meteor.subscribe "list"
-    if sub_list.ready()
+    if sub_list.ready() and sub_sche.ready()
       console.log "hello"
       HUMAN_FORM.remove({})
       human = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")
-      ADATA.find({p_doc_schema: human._id, input_starting: true}).map (doc) ->
+      ADATA.find({p_doc_schema: human._id, input_starting: true}, {sort: input_starting_sort: 1}).map (doc) ->
         doc._sid = doc._id
         delete doc._id
         HUMAN_FORM.insert(form_element: [doc], _sid: doc._sid, input_size: doc.input_size, input_starting: true)
   else
     if sub_list
       sub_list.stop()
+    if sub_sche
+      sub_sche.stop()
   return
 
 Template.layout.helpers
@@ -174,17 +177,28 @@ Template.add_contact.events
       index = 0
       input = $(parentdiv[index_p]).find(':input')
       while index < input.length
+        value = undefined
         id = new Meteor.Collection.ObjectID(input[index].dataset.sid)
         if input[index].localName is 'select'
-          value = new Meteor.Collection.ObjectID(input[index].value)
+          if input[index].value isnt "" and input[index].value isnt undefined
+            value = new Meteor.Collection.ObjectID(input[index].value)
         else if $(input[index]).hasClass('input_select')
-          value = new Meteor.Collection.ObjectID(input[index].dataset.value)
+          if input[index].dataset.value isnt "" and input[index].dataset.value isnt undefined
+            value = new Meteor.Collection.ObjectID(input[index].dataset.value)
         else
           value = input[index].value
-        barr[index] = {id: id, value: value}
-        index++
-      arr[index_p] = barr
-      index_p++
+        if value isnt "" and value isnt undefined
+          barr[index] = {id: id, value: value}
+          index++
+        else
+          input.splice(index, 1)
+        
+      if barr.length > 0
+        arr[index_p] = barr
+        index_p++
+      else
+        parentdiv.splice(index_p, 1)
+      
     console.log arr
     Meteor.call "insert_human", arr
 
@@ -281,8 +295,7 @@ Template.add_contact.events
 
         Meteor.subscribe "cities_list", params, ->
           d = new Meteor.Collection.ObjectID(e.currentTarget.dataset.schema)
-          city_schema = DATA.findOne(_id: d)
-          a = ADATA.find({$and: [{doc_schema: city_schema.doc_name}, $or: [{doc_name: { $regex: params.input, $options: 'i' }}, {country: { $regex: params.input, $options: 'i' }}]]}, { limit: 5} ).fetch()
+          a = ADATA.find({$and: [{doc_schema: d}, $or: [{doc_name: { $regex: params.input, $options: 'i' }}, {country: { $regex: params.input, $options: 'i' }}]]}, { limit: 5} ).fetch()
           if a
             console.log a
             a[0].e_class = "blue_color"
@@ -306,7 +319,7 @@ Template.add_contact.helpers
 
   select_options: (id) ->
     piece = ADATA.findOne(_id: id)
-    DATA.find({doc_schema: piece.value_schema})
+    ADATA.find({doc_schema: piece.value_schema})
 
   select_options_arr: (id) ->
     ADATA.find(parent: id).fetch()

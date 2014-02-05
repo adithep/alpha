@@ -13,10 +13,11 @@ pargs = {};
 pargs.session = false;
 
 Deps.autorun(function() {
-  var human, sub_list;
+  var human, sub_list, sub_sche;
   if (Meteor.user()) {
+    sub_sche = Meteor.subscribe("schema");
     sub_list = Meteor.subscribe("list");
-    if (sub_list.ready()) {
+    if (sub_list.ready() && sub_sche.ready()) {
       console.log("hello");
       HUMAN_FORM.remove({});
       human = DATA.findOne({
@@ -26,6 +27,10 @@ Deps.autorun(function() {
       ADATA.find({
         p_doc_schema: human._id,
         input_starting: true
+      }, {
+        sort: {
+          input_starting_sort: 1
+        }
       }).map(function(doc) {
         doc._sid = doc._id;
         delete doc._id;
@@ -40,6 +45,9 @@ Deps.autorun(function() {
   } else {
     if (sub_list) {
       sub_list.stop();
+    }
+    if (sub_sche) {
+      sub_sche.stop();
     }
   }
 });
@@ -255,22 +263,35 @@ Template.add_contact.events({
       index = 0;
       input = $(parentdiv[index_p]).find(':input');
       while (index < input.length) {
+        value = void 0;
         id = new Meteor.Collection.ObjectID(input[index].dataset.sid);
         if (input[index].localName === 'select') {
-          value = new Meteor.Collection.ObjectID(input[index].value);
+          if (input[index].value !== "" && input[index].value !== void 0) {
+            value = new Meteor.Collection.ObjectID(input[index].value);
+          }
         } else if ($(input[index]).hasClass('input_select')) {
-          value = new Meteor.Collection.ObjectID(input[index].dataset.value);
+          if (input[index].dataset.value !== "" && input[index].dataset.value !== void 0) {
+            value = new Meteor.Collection.ObjectID(input[index].dataset.value);
+          }
         } else {
           value = input[index].value;
         }
-        barr[index] = {
-          id: id,
-          value: value
-        };
-        index++;
+        if (value !== "" && value !== void 0) {
+          barr[index] = {
+            id: id,
+            value: value
+          };
+          index++;
+        } else {
+          input.splice(index, 1);
+        }
       }
-      arr[index_p] = barr;
-      index_p++;
+      if (barr.length > 0) {
+        arr[index_p] = barr;
+        index_p++;
+      } else {
+        parentdiv.splice(index_p, 1);
+      }
     }
     console.log(arr);
     return Meteor.call("insert_human", arr);
@@ -372,15 +393,12 @@ Template.add_contact.events({
           field: e.currentTarget.dataset.schema
         };
         Meteor.subscribe("cities_list", params, function() {
-          var a, city_schema;
+          var a;
           d = new Meteor.Collection.ObjectID(e.currentTarget.dataset.schema);
-          city_schema = DATA.findOne({
-            _id: d
-          });
           a = ADATA.find({
             $and: [
               {
-                doc_schema: city_schema.doc_name
+                doc_schema: d
               }, {
                 $or: [
                   {
@@ -441,7 +459,7 @@ Template.add_contact.helpers({
     piece = ADATA.findOne({
       _id: id
     });
-    return DATA.find({
+    return ADATA.find({
       doc_schema: piece.value_schema
     });
   },

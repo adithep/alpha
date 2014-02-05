@@ -193,22 +193,38 @@ Recursive = (function() {
     if (value !== '' && value !== void 0) {
       switch (schema.value_type) {
         case "oid":
-          a = DATA.findOne({
-            _id: value
-          });
-          r_value = a.doc_name;
+          if (schema.key_name !== "doc_schema") {
+            a = DATA.findOne({
+              _id: value
+            });
+            r_value = a.doc_name;
+          } else {
+            r_value = value;
+          }
+          break;
+        case "email":
+          r_value = value;
           break;
         case "string":
           r_value = value;
           break;
+        case "phone":
+          r_value = value;
+          break;
+        case "date":
+          r_value = value.toDateString();
+          break;
         case "number":
           r_value = value;
+          break;
+        case "currency":
+          r_value = value / 100;
           break;
         case "array":
           r_value = this.case_arr_o(schema.array_values, value);
           break;
         case "object":
-          r_value = this.case_switch_o(schema.object_keys, value);
+          r_value = this.case_switch_o(value, schema.object_keys);
       }
     }
     return r_value;
@@ -240,15 +256,29 @@ Recursive = (function() {
         case "string":
           r_value = value;
           break;
+        case "email":
+          r_value = value;
+          break;
+        case "phone":
+          r_value = value;
+          break;
         case "number":
           r_value = value;
+          break;
+        case "currency":
+          while (index < value.length) {
+            r_value[index] = value[index] / 100;
+          }
+          break;
+        case "date":
+          r_value = value.toDateString();
           break;
         case "array":
           this.case_arr_o(schema.array_values, value);
           break;
         case "object":
           while (index < value.length) {
-            r_value[index] = this.case_switch_o(schema.object_keys, value[index]);
+            r_value[index] = this.case_switch_o(value[index], schema.object_keys);
             index++;
           }
       }
