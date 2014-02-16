@@ -1,4 +1,14 @@
-var Json_Doc, genius, _;
+var Json_Doc, fs, genius, htmlobj, path, stream, _;
+
+Accounts.validateNewUser(function() {
+  return true;
+});
+
+fs = Npm.require('fs');
+
+path = Npm.require('path');
+
+stream = Npm.require('stream');
 
 _ = lodash;
 
@@ -66,7 +76,6 @@ DATA.after.insert(function(userid, doc) {
     _.extend(a, {
       _id: this._id
     });
-    console.log(a);
     ADATA.upsert({
       _id: this._id
     }, a);
@@ -136,7 +145,45 @@ Meteor.methods({
     });
     mobj.doc_schema = human_schema._id;
     DATA.insert(mobj);
-    console.log(mobj);
+  },
+  save_human_json: function() {
+    var count, human_schema, writeStream;
+    human_schema = DATA.findOne({
+      doc_name: "humans",
+      doc_schema: "doc_schema"
+    });
+    writeStream = fs.createWriteStream('../../../../../../json/humans.json', {
+      flags: 'w'
+    });
+    writeStream.write("[");
+    count = DATA.find({
+      doc_schema: human_schema._id
+    }, {
+      fields: {
+        _id: 0
+      }
+    }).count() - 1;
+    console.log(count);
+    DATA.find({
+      doc_schema: human_schema._id
+    }, {
+      fields: {
+        _id: 0
+      }
+    }).forEach(function(doc, index) {
+      var lines;
+      lines = re.write_case_switch(human_schema.schema, doc);
+      console.log(lines);
+      writeStream.write(EJSON.stringify(lines, {
+        indent: true
+      }));
+      console.log(index);
+      if (index !== count) {
+        return writeStream.write(",");
+      }
+    });
+    writeStream.write("]");
+    return console.log("human.json written");
   }
 });
 
@@ -250,6 +297,17 @@ Meteor.publish("list", function() {
   });
 });
 
+Meteor.publish("humans", function() {
+  var humans;
+  humans = DATA.findOne({
+    doc_schema: "doc_schema",
+    doc_name: "humans"
+  });
+  return ADATA.find({
+    doc_schema: humans._id
+  });
+});
+
 Meteor.publish("schema", function() {
   var b, c;
   b = ADATA.find({
@@ -298,13 +356,52 @@ Meteor.publish("cities_list", function(args) {
   }
 });
 
+htmlobj = function(schema, html, path) {
+  var ht, index, p;
+  index = 0;
+  ht = html;
+  while (index < schema.length) {
+    if (path) {
+      p = path + "." + schema[index].key_name;
+    } else {
+      p = schema[index].key_name;
+    }
+    switch (schema[index].value_type) {
+      case "object":
+        if (schema[index].placeholder) {
+          ht = ht + ("<br><p>" + schema[index].placeholder + "</p>");
+        }
+        ht = htmlobj(schema[index].object_keys, ht, p);
+        break;
+      case "array":
+        if (schema[index].array_values.value_type === "object") {
+          ht = ht + ("<br><p>" + schema[index].placeholder + ":</p> {{#each this." + p + "}}");
+          ht = htmlobj(schema[index].array_values.object_keys, ht);
+          ht = ht + "{{/each}}";
+        } else {
+          if (schema[index].placeholder) {
+            ht = ht + ("<br><p>" + schema[index].placeholder + ": </p> <ul> {{#each this." + p + "}} <li> {{this}} </li>{{/each}}</ul> ");
+          }
+        }
+        break;
+      default:
+        if (schema[index].placeholder) {
+          ht = ht + ("<br><p>" + schema[index].placeholder + ": {{this.") + p + "}}</p>";
+        }
+    }
+    index++;
+  }
+  return ht;
+};
+
 Meteor.startup(function() {
-  var doc_json;
+  var Html, doc_json, html, human_schema;
   doc_json = new Json_Doc();
   if (DATA.find({
     doc_schema: "doc_schema"
   }).count() === 0) {
     DATA.remove({});
+    fs.unlink('../../../../../../packages/core-layout/schema.html');
   }
   if (DATA.find().count() === 0) {
     doc_json.insert_schema('schema_array');
@@ -332,6 +429,24 @@ Meteor.startup(function() {
   if (DATA.find({
     doc_schema: doc_json.get_schema_id('cities')
   }).count() === 0) {
-    return doc_json.insert_json('cities', 'cities');
+    doc_json.insert_json('cities', 'cities');
+  }
+  if (DATA.find({
+    doc_schema: doc_json.get_schema_id('humans')
+  }).count() === 0) {
+    doc_json.insert_json('humans', 'humans');
+  }
+  if (fs.existsSync('../../../../../../packages/core-layout/schema.html')) {
+    html = fs.readFileSync('../../../../../../packages/core-layout/schema.html', 'utf8');
+    return console.log(html);
+  } else {
+    human_schema = DATA.findOne({
+      doc_name: "humans",
+      doc_schema: "doc_schema"
+    });
+    html = "<template name='display_humans'> {{#each humans}}";
+    Html = htmlobj(human_schema.schema, html);
+    Html = Html + "{{/each}}</template>";
+    return fs.writeFileSync('../../../../../../packages/core-layout/schema.html', Html);
   }
 });

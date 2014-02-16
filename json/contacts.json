@@ -1,1 +1,1076 @@
-[{"first_name":"Adithep","last_name":"SriNarula","email":"badsxx@gmail.com","mobile":"+66899276069","type":"humans","_id":{"_str":"ebb5ec8b7a1204f2efe28cdc"}}]
+{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069",
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069"
+    ],
+    "personal": [
+      "+66863042950"
+    ],
+    "work": [
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391558400000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  },
+  "inserted": {
+    "user": "fNvfayxX48JPCz3vB",
+    "date": {
+      "$date": 1391622643523
+    }
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069",
+      "+66863042950",
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391644800000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391644800000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  },
+  "created": {
+    "user": "fNvfayxX48JPCz3vB",
+    "date": {
+      "$date": 1391633520096
+    }
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069",
+      "+66863042950",
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391644800000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391644800000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  },
+  "created": {
+    "user": "fNvfayxX48JPCz3vB",
+    "date": {
+      "$date": 1391633594492
+    }
+  }
+}{
+  "full_name": {
+    "titles": {
+      "$type": "oid",
+      "$value": "2e74d85ef8b5f6faa0ac0bd3"
+    },
+    "first_name": "Adithep",
+    "middle_name": "Bads",
+    "last_name": "SriNarula"
+  },
+  "email": {
+    "main": [
+      "badsxx@gmail.com",
+      "syncate@syncate.com"
+    ],
+    "personal": [
+      "badz_bhal@hotmail.com"
+    ]
+  },
+  "mobile": {
+    "main": [
+      "+66899276069",
+      "+66863042950",
+      "+66863042951"
+    ]
+  },
+  "date_of_birth": {
+    "$date": 544924800000
+  },
+  "city": {
+    "$type": "oid",
+    "$value": "a7f47f10594526415c3a2ffa"
+  },
+  "service": [
+    {
+      "date_of_entry": {
+        "$date": 1391644800000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "4dce90a65f2d129246388d13"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "9fb2e02023aeb039489bc326"
+      },
+      "cost": 3000000
+    },
+    {
+      "date_of_entry": {
+        "$date": 1391644800000
+      },
+      "service": {
+        "$type": "oid",
+        "$value": "823b73e9318cff92346062e8"
+      },
+      "currency": {
+        "$type": "oid",
+        "$value": "ebca7104b33b6a56e659e26f"
+      },
+      "cost": 50000
+    }
+  ],
+  "doc_schema": {
+    "$type": "oid",
+    "$value": "c94b652322558ab7597ada0a"
+  },
+  "created": {
+    "user": "fNvfayxX48JPCz3vB",
+    "date": {
+      "$date": 1391661513202
+    }
+  }
+}

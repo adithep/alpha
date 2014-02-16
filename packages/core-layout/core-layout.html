@@ -49,64 +49,6 @@
 <template name="sorry_man">
   <h1>Cannot find anytin in this path!!! Panic!!! What to do??</h1>
 </template>
-<template name="add_contact">
-  <ul class="button-group radius">{{>_each_schema}}</ul>
-  <form class="contact_form">
-    <div class="row">{{#each input_element}}
-      <div data-sid="{{this._id._str}}" class="large-{{this.input_size}} columns left parentdiv">
-        <div class="row collapse">
-          {{#each this.form_element}}
-          {{#if object_keys_arr}}
-          <div class="small-{{this.select_small_size}} columns">
-            <select name="{{this.key_name}}" data-sid="{{this._sid._str}}">{{#each select_options_arr this._sid}}
-              <option value="{{this._id._str}}">{{this.select_opt_name}}</option>{{/each}}
-            </select>
-          </div>{{/if}}
-          {{#if this.input}}
-          <div class="small-{{this.input_small_size}} columns">
-            <input name="{{key_name}}" type="{{this.input_type}}" placeholder="{{this.input_placeholder}}" data-sid="{{this._sid._str}}" value="{{#if this.input_today}}{{today_isodate}}{{/if}}"/>
-            <div data-alert="data-alert" class="alert-box alaa warning"><span>invalid</span></div>
-          </div>{{/if}}
-          {{#if select}}
-          <div class="small-{{this.input_small_size}} columns">
-            <select name="{{this.key_name}}" data-sid="{{this._sid._str}}">
-              {{#each select_options this._sid}}
-              {{#if default}}
-              <option value="{{this._id._str}}" selected="selected" data-def="1">{{this.doc_name}}</option>{{else}}
-              <option value="{{this._id._str}}">{{this.doc_name}}</option>{{/if}}
-              {{/each}}
-            </select>
-          </div>{{/if}}
-          {{#if input_select}}
-          <div class="small-{{this.input_small_size}} columns">
-            <input name="{{key_name}}" type="{{this.input_type}}" placeholder="{{this.input_placeholder}}" data-sid="{{this._sid._str}}" data-schema="{{this.value_schema._str}}" autocomplete="off" class="input_select"/>
-            <div class="panel input_select_box">
-              <ul class="input_select_list">
-                {{#each input_select_helper this.value_schema}}
-                {{> select_list}}
-                {{/each}}
-              </ul>
-            </div>
-          </div>{{/if}}
-          {{/each}}
-          {{#unless input_starting}}
-          <div class="small-1 columns"><a data-id="{{this._id._str}}" class="button postfix close_input">X</a></div>{{/unless}}
-        </div>
-      </div>{{/each}}
-    </div><a class="button form_submit">Submit</a>
-  </form>
-</template>
-<template name="_each_schema">
-  {{#each schema}}
-  {{>_schema}}
-  {{/each}}
-</template>
-<template name="select_list">
-  <li data-value="{{this._id._str}}" class="lala_item {{this.e_class}}">{{this.doc_name}} {{this.country}}</li>
-</template>
-<template name="_schema">
-  <li><a data-id="{{this._id._str}}" class="button small click-input">{{this.button_name}}</a></li>
-</template>
 <template name="login">
   <div id="logindiv" class="row">
     <div class="large-12 columns">

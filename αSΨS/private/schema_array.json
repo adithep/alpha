@@ -223,6 +223,7 @@
       {
         "value_type": "object",
         "key_name": "full_name",
+        "placeholder": "Full Name",
         "object_keys": [
           {
             "value_type": "oid",
@@ -234,7 +235,7 @@
             "array": false,
             "input_size": 1,
             "input_small_size": 12,
-            "input_placeholder": "Titles"
+            "placeholder": "Titles"
           },
           {
             "value_type": "string",
@@ -246,7 +247,7 @@
             "array": false,
             "input_size": 4,
             "input_small_size": 12,
-            "input_placeholder": "First Name"
+            "placeholder": "First Name"
           },
           {
             "value_type": "string",
@@ -257,7 +258,7 @@
             "array": false,
             "input_size": 4,
             "input_small_size": 11,
-            "input_placeholder": "Middle Name"
+            "placeholder": "Middle Name"
           },
           {
             "value_type": "string",
@@ -268,7 +269,7 @@
             "input_small_size": 11,
             "input": true,
             "array": false,
-            "input_placeholder": "Last Name"
+            "placeholder": "Last Name"
           }
         ]
       },
@@ -283,12 +284,13 @@
         "select_small_size": 3,
         "input_type": "text",
         "input_small_size": 8,
-        "input_placeholder": "Email",
+        "placeholder": "Email",
         "object_keys": [
           {
             "value_type": "array",
             "key_name": "main",
             "select_opt_name": "Main",
+            "placeholder": "Main",
             "array_values": {
               "value_type": "email"
             }
@@ -297,6 +299,7 @@
             "value_type": "array",
             "key_name": "personal",
             "select_opt_name": "Personal",
+            "placeholder": "Personal",
             "array_values": {
               "value_type": "email"
             }
@@ -305,6 +308,7 @@
             "value_type": "array",
             "key_name": "work",
             "select_opt_name": "Work",
+            "placeholder": "Work",
             "array_values": {
               "value_type": "email"
             }
@@ -322,12 +326,13 @@
         "input_small_size": 8,
         "input_type": "text",
         "button_name": "Mobile",
-        "input_placeholder": "Mobile",
+        "placeholder": "Mobile",
         "object_keys": [
           {
             "value_type": "array",
             "key_name": "main",
             "select_opt_name": "Main",
+            "placeholder": "Main",
             "array_values": {
               "value_type": "phone"
             }
@@ -336,6 +341,7 @@
             "value_type": "array",
             "key_name": "personal",
             "select_opt_name": "Personal",
+            "placeholder": "Personal",
             "array_values": {
               "value_type": "phone"
             }
@@ -344,6 +350,7 @@
             "value_type": "array",
             "key_name": "work",
             "select_opt_name": "Work",
+            "placeholder": "Work",
             "array_values": {
               "value_type": "phone"
             }
@@ -355,7 +362,7 @@
         "key_name": "service",
         "button_name": "Service",
         "array": true,
-        "input_placeholder": "Service",
+        "placeholder": "Service",
         "array_values": {
           "value_type": "object",
           "object_keys": [
@@ -366,7 +373,8 @@
               "input_today": true,
               "input_size": 2,
               "input_small_size": 3,
-              "key_name": "date_of_entry"
+              "key_name": "date_of_entry",
+              "placeholder": "Date"
             },
             {
               "value_type": "oid",
@@ -374,6 +382,7 @@
               "select": true,
               "input_size": 2,
               "input_small_size": 3,
+              "placeholder": "Service",
               "value_schema": "services"
             },
             {
@@ -382,6 +391,7 @@
               "select": true,
               "input_size": 1,
               "input_small_size": 2,
+              "placeholder": "Currecny",
               "value_schema": "currencies"
             },
             {
@@ -390,6 +400,7 @@
               "input": true,
               "input_size": 2,
               "input_small_size": 3,
+              "placeholder": "Cost",
               "key_name": "cost"
             }
           ]
@@ -397,7 +408,7 @@
       },
       {
         "value_type": "date",
-        "input_placeholder": "Date",
+        "placeholder": "Date of Birth",
         "array": false,
         "button_name": "Date of Birth",
         "input_type": "date",
@@ -408,7 +419,7 @@
       },
       {
         "value_type": "oid",
-        "input_placeholder": "City",
+        "placeholder": "City",
         "array": false,
         "key_name": "city",
         "button_name": "City",

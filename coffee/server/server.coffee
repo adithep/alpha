@@ -1,3 +1,10 @@
+Accounts.validateNewUser ->
+  true
+fs = Npm.require('fs')
+path = Npm.require('path')
+stream = Npm.require('stream')
+
+
 _ = lodash
 class Json_Doc
   constructor: (@id) ->
@@ -42,7 +49,6 @@ DATA.after.insert (userid, doc) ->
   if doc.doc_schema isnt "doc_schema"
     a = re.case_switch_o(doc)
     _.extend(a, {_id: this._id})
-    console.log a
     ADATA.upsert({_id: this._id}, a)
     if doc.doc_name
       console.log "#{doc.doc_name} inserted"
@@ -82,9 +88,24 @@ Meteor.methods
     human_schema = DATA.findOne(doc_schema: "doc_schema", doc_name: "humans")
     mobj.doc_schema = human_schema._id
     DATA.insert(mobj)
-    console.log mobj
 
     return
+
+  save_human_json: ->
+    human_schema = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")
+    writeStream = fs.createWriteStream('../../../../../../json/humans.json', { flags : 'w' })
+    writeStream.write("[")
+    count = DATA.find({doc_schema: human_schema._id},{fields: _id: 0}).count() - 1
+    console.log count
+    DATA.find({doc_schema: human_schema._id},{fields: _id: 0}).forEach (doc, index) ->
+      lines = re.write_case_switch(human_schema.schema, doc)
+      console.log lines
+      writeStream.write(EJSON.stringify(lines, indent: true))
+      console.log index
+      if index isnt count
+        writeStream.write(",")
+    writeStream.write("]")
+    console.log "human.json written"
 
 genius = (doc, value) ->
   obj = {}
@@ -140,6 +161,10 @@ Meteor.publish "list", ->
   cities_arr = DATA.distinct("city", {doc_schema: humans._id})
   ADATA.find({$or: [{doc_schema: titles._id}, {_id: {$in: cities_arr}}, {doc_schema: currencies._id}, {doc_schema: services._id}]}, {fields: {doc_schema: 1, doc_name: 1, default: 1, country: 1} })
 
+Meteor.publish "humans", ->
+  humans = DATA.findOne(doc_schema: "doc_schema", doc_name: "humans")
+  ADATA.find(doc_schema: humans._id)
+
 Meteor.publish "schema", ->
   b = ADATA.find({p_doc_schema: {$exists: true}})
   c = DATA.find({doc_schema: "doc_schema"})
@@ -150,6 +175,33 @@ Meteor.publish "cities_list", (args) ->
     d = new Meteor.Collection.ObjectID(args.field)
     ADATA.find({$and: [{doc_schema: d}, $or: [{doc_name: { $regex: args.input, $options: 'i' }}, {country: { $regex: args.input, $options: 'i' }}]]}, { limit: 5, fields: {doc_name: 1, country: 1, doc_schema: 1} } )
 
+htmlobj = (schema, html, path) ->
+  index = 0
+  ht = html
+  while index < schema.length
+    if path
+      p = path + "." + schema[index].key_name
+    else
+      p = schema[index].key_name
+    switch schema[index].value_type
+      when "object"
+        if schema[index].placeholder
+          ht = ht + "<br><p>#{schema[index].placeholder}</p>"
+        ht = htmlobj(schema[index].object_keys, ht, p)
+      when "array"
+        if schema[index].array_values.value_type is "object"
+          ht = ht + "<br><p>#{schema[index].placeholder}:</p> {{#each this.#{p}}}"
+          ht = htmlobj(schema[index].array_values.object_keys, ht)
+          ht = ht + "{{/each}}"
+        else
+          if schema[index].placeholder
+            ht = ht + "<br><p>#{schema[index].placeholder}: </p> <ul> {{#each this.#{p}}} <li> {{this}} </li>{{/each}}</ul> "
+
+      else
+        if schema[index].placeholder
+          ht = ht + "<br><p>#{schema[index].placeholder}: {{this." + p + "}}</p>"
+    index++
+  ht
 
 Meteor.startup ->
 
@@ -157,6 +209,7 @@ Meteor.startup ->
 
   if DATA.find(doc_schema: "doc_schema").count() is 0
     DATA.remove({})
+    fs.unlink('../../../../../../packages/core-layout/schema.html')
 
   if DATA.find().count() is 0
     doc_json.insert_schema('schema_array')
@@ -175,4 +228,21 @@ Meteor.startup ->
 
   if DATA.find(doc_schema: doc_json.get_schema_id('cities')).count() is 0
     doc_json.insert_json('cities', 'cities')
+
+  if DATA.find(doc_schema: doc_json.get_schema_id('humans')).count() is 0
+    doc_json.insert_json('humans', 'humans')
+
+  if fs.existsSync('../../../../../../packages/core-layout/schema.html')
+
+    html = fs.readFileSync('../../../../../../packages/core-layout/schema.html', 'utf8')
+    console.log html
+
+  else
+    human_schema = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")
+    html = "<template name='display_humans'> {{#each humans}}"
+    Html = htmlobj(human_schema.schema, html)
+    Html = Html + "{{/each}}</template>"
+    fs.writeFileSync('../../../../../../packages/core-layout/schema.html', Html)
+
+
 

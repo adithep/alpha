@@ -1,0 +1,61 @@
+template(name="add_contact")
+
+  a(class="button right tiny save_human_json") Save Json
+
+  ul(class="button-group radius")
+    {{>_each_schema}}
+  form(class="contact_form")
+    div(class="row")
+      {{#each input_element}}
+      div(class="large-{{this.input_size}} columns left parentdiv", data-sid="{{this._id._str}}")
+        div(class="row collapse")
+          {{#each this.form_element}}
+          {{#if object_keys_arr}}
+          div(class="small-{{this.select_small_size}} columns")
+            select(name="{{this.key_name}}", data-sid="{{this._sid._str}}")
+              {{#each select_options_arr this._sid}}
+              option(value="{{this._id._str}}") {{this.select_opt_name}}
+              {{/each}}
+          {{/if}}
+          {{#if this.input}}
+          div(class="small-{{this.input_small_size}} columns")
+            input(name="{{key_name}}", type="{{this.input_type}}", placeholder="{{this.placeholder}}", data-sid="{{this._sid._str}}", value="{{#if this.input_today}}{{today_isodate}}{{/if}}")
+            div(data-alert, class="alert-box alaa warning")
+              span invalid
+          {{/if}}
+          {{#if select}}
+          div(class="small-{{this.input_small_size}} columns")
+            select(name="{{this.key_name}}", data-sid="{{this._sid._str}}")
+              {{#each select_options this._sid}}
+              {{#if default}}
+              option(value="{{this._id._str}}", selected, data-def="1") {{this.doc_name}}
+              {{else}}
+              option(value="{{this._id._str}}") {{this.doc_name}}
+              {{/if}}
+              {{/each}}
+          {{/if}}
+          {{#if input_select}}
+          div(class="small-{{this.input_small_size}} columns")
+            input(name="{{key_name}}", type="{{this.input_type}}", placeholder="{{this.placeholder}}", data-sid="{{this._sid._str}}", data-schema="{{this.value_schema._str}}", class="input_select", autocomplete="off")
+            div(class="panel input_select_box")
+              ul(class="input_select_list")
+                {{#each input_select_helper this.value_schema}}
+                {{> select_list}}
+                {{/each}}
+          {{/if}}
+          {{/each}}
+          {{#unless input_starting}}
+          div(class="small-1 columns")
+            a(class="button postfix close_input", data-id="{{this._id._str}}") X
+          {{/unless}}
+      {{/each}}
+    a(class="button form_submit") Submit
+template(name="_each_schema")
+  {{#each schema}}
+  {{>_schema}}
+  {{/each}}
+template(name="select_list")
+  li(class="lala_item {{this.e_class}}", data-value="{{this._id._str}}") {{this.doc_name}} {{this.country}}
+template(name="_schema")
+  li
+    a(class="button small click-input", data-id="{{this._id._str}}") {{this.button_name}}

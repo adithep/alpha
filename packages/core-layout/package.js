@@ -4,7 +4,8 @@ Package.describe({
 
 Package.on_use(function (api, where) {
   api.use(['spacebars', 'ui', 'standard-app-packages', 'data-lib', 'phoneformat'], 'client');
-  api.add_files(['core-layout.html', 'foundation.min.css', 'core-layout.css', 'normalize.css', 'core-layout.js'], 'client');
+  api.add_files(['core-layout.html', 'schema.html', 'foundation.min.css', 'core-layout.css', 'normalize.css', 'core-layout.js'], 'client');
+  api.export('subscription', 'client');
 });
 
 Package.on_test(function (api) {
