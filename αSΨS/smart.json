@@ -22,6 +22,7 @@
     "mongo-aggregation": {
       "path": "../packages/mongo-aggregation"
     },
-    "collection-hooks": {}
+    "collection-hooks": {},
+    "repeat-component": {}
   }
 }

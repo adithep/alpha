@@ -27,6 +27,7 @@ class Json_Doc
     json_obj = EJSON.parse(Assets.getText(json))
     index = 0
     schema = DATA.findOne(_id: @id[schema])
+    ADATA.remove(doc_schema: @id[schema])
     while index < json_obj.length
       a = re.case_switch(schema.schema, json_obj[index])
       DATA.insert(a)
@@ -175,31 +176,44 @@ Meteor.publish "cities_list", (args) ->
     d = new Meteor.Collection.ObjectID(args.field)
     ADATA.find({$and: [{doc_schema: d}, $or: [{doc_name: { $regex: args.input, $options: 'i' }}, {country: { $regex: args.input, $options: 'i' }}]]}, { limit: 5, fields: {doc_name: 1, country: 1, doc_schema: 1} } )
 
-htmlobj = (schema, html, path) ->
+htmlobj = (schema, html, path, fath) ->
   index = 0
   ht = html
+  truth = false
   while index < schema.length
+    if fath
+      dim = fath + "." + schema[index].key_name
     if path
       p = path + "." + schema[index].key_name
     else
       p = schema[index].key_name
+      truth = true
     switch schema[index].value_type
       when "object"
         if schema[index].placeholder
-          ht = ht + "<br><p>#{schema[index].placeholder}</p>"
+          ht = ht + "{{#if this.#{p}}}<div><span data-path='#{p}'>#{schema[index].placeholder}</span><div>"
         ht = htmlobj(schema[index].object_keys, ht, p)
+        if schema[index].placeholder
+          ht = ht + "</div></div>{{/if}}"
       when "array"
         if schema[index].array_values.value_type is "object"
-          ht = ht + "<br><p>#{schema[index].placeholder}:</p> {{#each this.#{p}}}"
-          ht = htmlobj(schema[index].array_values.object_keys, ht)
-          ht = ht + "{{/each}}"
+          ht = ht + "{{#if this.#{p}}}<div><span data-path='#{p}'>#{schema[index].placeholder}:</span> {{#each dude this.#{p}}}<div>"
+          f = p + ".{{$index}}"
+          ht = htmlobj(schema[index].array_values.object_keys, ht, false, f)
+          ht = ht + "</div>{{/each}}</div>"
+          ht = ht + "{{/if}}"
         else
           if schema[index].placeholder
-            ht = ht + "<br><p>#{schema[index].placeholder}: </p> <ul> {{#each this.#{p}}} <li> {{this}} </li>{{/each}}</ul> "
+            ht = ht + "{{#if this.#{p}}}<span data-path='#{p}'>#{schema[index].placeholder}: </span> <ul> {{#each dude this.#{p}}} <li> <a class='inlineedit' data-path='#{p}.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}"
 
       else
         if schema[index].placeholder
-          ht = ht + "<br><p>#{schema[index].placeholder}: {{this." + p + "}}</p>"
+          if fath
+            ht = ht + "{{#if this.#{p}}}<span>#{schema[index].placeholder}: <a class='inlineedit' data-path='#{dim}'> {{this.#{p}}}</a></span>{{/if}}"
+          else if truth
+            ht = ht + "{{#if this.#{p}}}<div><span>#{schema[index].placeholder}: <a class='inlineedit' data-path='#{p}'> {{this.#{p}}}</a></span></div>{{/if}}"
+          else
+            ht = ht + "{{#if this.#{p}}}<span>#{schema[index].placeholder}: <a class='inlineedit' data-path='#{p}'> {{this.#{p}}}</a></span>{{/if}}"
     index++
   ht
 
@@ -235,13 +249,12 @@ Meteor.startup ->
   if fs.existsSync('../../../../../../packages/core-layout/schema.html')
 
     html = fs.readFileSync('../../../../../../packages/core-layout/schema.html', 'utf8')
-    console.log html
 
   else
     human_schema = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")
-    html = "<template name='display_humans'> {{#each humans}}"
+    html = "<template name='__display_humans'>"
     Html = htmlobj(human_schema.schema, html)
-    Html = Html + "{{/each}}</template>"
+    Html = Html + "</template>"
     fs.writeFileSync('../../../../../../packages/core-layout/schema.html', Html)
 
 

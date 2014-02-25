@@ -41,6 +41,9 @@ Json_Doc = (function() {
     schema = DATA.findOne({
       _id: this.id[schema]
     });
+    ADATA.remove({
+      doc_schema: this.id[schema]
+    });
     while (index < json_obj.length) {
       a = re.case_switch(schema.schema, json_obj[index]);
       DATA.insert(a);
@@ -356,37 +359,53 @@ Meteor.publish("cities_list", function(args) {
   }
 });
 
-htmlobj = function(schema, html, path) {
-  var ht, index, p;
+htmlobj = function(schema, html, path, fath) {
+  var dim, f, ht, index, p, truth;
   index = 0;
   ht = html;
+  truth = false;
   while (index < schema.length) {
+    if (fath) {
+      dim = fath + "." + schema[index].key_name;
+    }
     if (path) {
       p = path + "." + schema[index].key_name;
     } else {
       p = schema[index].key_name;
+      truth = true;
     }
     switch (schema[index].value_type) {
       case "object":
         if (schema[index].placeholder) {
-          ht = ht + ("<br><p>" + schema[index].placeholder + "</p>");
+          ht = ht + ("{{#if this." + p + "}}<div><span data-path='" + p + "'>" + schema[index].placeholder + "</span><div>");
         }
         ht = htmlobj(schema[index].object_keys, ht, p);
+        if (schema[index].placeholder) {
+          ht = ht + "</div></div>{{/if}}";
+        }
         break;
       case "array":
         if (schema[index].array_values.value_type === "object") {
-          ht = ht + ("<br><p>" + schema[index].placeholder + ":</p> {{#each this." + p + "}}");
-          ht = htmlobj(schema[index].array_values.object_keys, ht);
-          ht = ht + "{{/each}}";
+          ht = ht + ("{{#if this." + p + "}}<div><span data-path='" + p + "'>" + schema[index].placeholder + ":</span> {{#each dude this." + p + "}}<div>");
+          f = p + ".{{$index}}";
+          ht = htmlobj(schema[index].array_values.object_keys, ht, false, f);
+          ht = ht + "</div>{{/each}}</div>";
+          ht = ht + "{{/if}}";
         } else {
           if (schema[index].placeholder) {
-            ht = ht + ("<br><p>" + schema[index].placeholder + ": </p> <ul> {{#each this." + p + "}} <li> {{this}} </li>{{/each}}</ul> ");
+            ht = ht + ("{{#if this." + p + "}}<span data-path='" + p + "'>" + schema[index].placeholder + ": </span> <ul> {{#each dude this." + p + "}} <li> <a class='inlineedit' data-path='" + p + ".{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}");
           }
         }
         break;
       default:
         if (schema[index].placeholder) {
-          ht = ht + ("<br><p>" + schema[index].placeholder + ": {{this.") + p + "}}</p>";
+          if (fath) {
+            ht = ht + ("{{#if this." + p + "}}<span>" + schema[index].placeholder + ": <a class='inlineedit' data-path='" + dim + "'> {{this." + p + "}}</a></span>{{/if}}");
+          } else if (truth) {
+            ht = ht + ("{{#if this." + p + "}}<div><span>" + schema[index].placeholder + ": <a class='inlineedit' data-path='" + p + "'> {{this." + p + "}}</a></span></div>{{/if}}");
+          } else {
+            ht = ht + ("{{#if this." + p + "}}<span>" + schema[index].placeholder + ": <a class='inlineedit' data-path='" + p + "'> {{this." + p + "}}</a></span>{{/if}}");
+          }
         }
     }
     index++;
@@ -437,16 +456,15 @@ Meteor.startup(function() {
     doc_json.insert_json('humans', 'humans');
   }
   if (fs.existsSync('../../../../../../packages/core-layout/schema.html')) {
-    html = fs.readFileSync('../../../../../../packages/core-layout/schema.html', 'utf8');
-    return console.log(html);
+    return html = fs.readFileSync('../../../../../../packages/core-layout/schema.html', 'utf8');
   } else {
     human_schema = DATA.findOne({
       doc_name: "humans",
       doc_schema: "doc_schema"
     });
-    html = "<template name='display_humans'> {{#each humans}}";
+    html = "<template name='__display_humans'>";
     Html = htmlobj(human_schema.schema, html);
-    Html = Html + "{{/each}}</template>";
+    Html = Html + "</template>";
     return fs.writeFileSync('../../../../../../packages/core-layout/schema.html', Html);
   }
 });

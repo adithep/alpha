@@ -59,3 +59,9 @@ template(name="select_list")
 template(name="_schema")
   li
     a(class="button small click-input", data-id="{{this._id._str}}") {{this.button_name}}
+template(name="display_humans")
+  div(class="man")
+    {{#each humans}}
+    {{> __display_humans}}
+    hr
+    {{/each}}

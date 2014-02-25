@@ -4,8 +4,8 @@ pargs = {}
 pargs.session = false
 
 Deps.autorun ->
-  if subscription.sub_list.ready() and subscription.sub_sche.ready()
-    console.log "hello"
+  a = Session.get("subscription")
+  if a.sub_list and a.sub_sche
     HUMAN_FORM.remove({})
     human = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")
     ADATA.find({p_doc_schema: human._id, input_starting: true}, {sort: input_starting_sort: 1}).map (doc) ->
@@ -265,6 +265,22 @@ Template.display_humans.helpers
     human = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")
     if human
       ADATA.find(doc_schema: human._id)
+  dude: (arg) ->
+    i = 0
+    item = []
+    while i < arg.length
+      if typeof arg[i] is 'string'
+        obj = {}
+        obj.$value = arg[i]
+        obj.$index = i
+      else
+        obj = arg[i]
+        obj.$index = i
+      item[i] = obj
+      i++
+    item
+
+
 
 
 ojts = (id) ->

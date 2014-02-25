@@ -3,7 +3,7 @@ Package.describe({
 });
 
 Package.on_use(function (api, where) {
-  api.use(['spacebars', 'ui', 'standard-app-packages', 'data-lib', 'phoneformat', 'core-layout'], 'client');
+  api.use(['spacebars', 'ui', 'standard-app-packages', 'core-layout', 'data-lib', 'phoneformat', 'repeat-component'], 'client');
   api.add_files(['human-insert-form.html', 'human-insert-form.js'], 'client');
 });
 

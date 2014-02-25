@@ -4,6 +4,8 @@ Deps.autorun ->
     subscription.sub_sche = Meteor.subscribe "schema"
     subscription.sub_list = Meteor.subscribe "list"
     subscription.sub_humans = Meteor.subscribe "humans"
+    if subscription.sub_sche.ready() and subscription.sub_list.ready()
+      Session.set("subscription", subscription)
   else
     if subscription.sub_list
       subscription.sub_list.stop()
@@ -11,6 +13,7 @@ Deps.autorun ->
       subscription.sub_sche.stop()
     if subscription.sub_humans
       subscription.sub_humans.stop()
+    Session.set("subscription", false)
   return
 
 Template.layout.helpers

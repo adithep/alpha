@@ -13,9 +13,9 @@ pargs = {};
 pargs.session = false;
 
 Deps.autorun(function() {
-  var human;
-  if (subscription.sub_list.ready() && subscription.sub_sche.ready()) {
-    console.log("hello");
+  var a, human;
+  a = Session.get("subscription");
+  if (a.sub_list && a.sub_sche) {
     HUMAN_FORM.remove({});
     human = DATA.findOne({
       doc_name: "humans",
@@ -389,6 +389,24 @@ Template.display_humans.helpers({
         doc_schema: human._id
       });
     }
+  },
+  dude: function(arg) {
+    var i, item, obj;
+    i = 0;
+    item = [];
+    while (i < arg.length) {
+      if (typeof arg[i] === 'string') {
+        obj = {};
+        obj.$value = arg[i];
+        obj.$index = i;
+      } else {
+        obj = arg[i];
+        obj.$index = i;
+      }
+      item[i] = obj;
+      i++;
+    }
+    return item;
   }
 });
 

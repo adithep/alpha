@@ -5,3 +5,7 @@ small.error{margin-top:0;top:-20px;display:none;position:relative}
 .input_select_box{position:absolute;display:none;z-index:5;top:38px;padding:5px;width:100%}
 .input_select_list{list-style-type:none;margin:0}
 .blue_color{background-color:#00f;color:#fff}
+.man div{margin-left:15px;margin-top:5px}
+.man span{display:inline-block;margin-left:10px;padding-top:5px}
+.man li{display:inline}
+.man ul{margin-bottom:0}

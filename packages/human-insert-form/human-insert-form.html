@@ -57,3 +57,10 @@
 <template name="_schema">
   <li><a data-id="{{this._id._str}}" class="button small click-input">{{this.button_name}}</a></li>
 </template>
+<template name="display_humans">
+  <div class="man">
+    {{#each humans}}
+    {{> __display_humans}}
+    <hr/>{{/each}}
+  </div>
+</template>

@@ -3,9 +3,9 @@ Package.describe({
 });
 
 Package.on_use(function (api, where) {
-  api.use(['spacebars', 'ui', 'standard-app-packages', 'data-lib', 'phoneformat'], 'client');
-  api.add_files(['core-layout.html', 'schema.html', 'foundation.min.css', 'core-layout.css', 'normalize.css', 'core-layout.js'], 'client');
-  api.export('subscription', 'client');
+  api.use(['spacebars', 'ui', 'standard-app-packages', 'data-lib', 'phoneformat', 'observe-sequence', 'minimongo'], 'client');
+  api.add_files(['core-layout.html', 'schema.html', 'foundation.min.css', 'core-layout.css', 'normalize.css', 'echa.js', 'core-layout.js'], 'client');
+  
 });
 
 Package.on_test(function (api) {
