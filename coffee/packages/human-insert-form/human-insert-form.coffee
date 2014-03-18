@@ -265,7 +265,7 @@ Template.display_humans.helpers
     human = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")
     if human
       ADATA.find(doc_schema: human._id)
-  dude: (arg) ->
+  dude: (arg, id) ->
     i = 0
     item = []
     while i < arg.length
@@ -273,14 +273,50 @@ Template.display_humans.helpers
         obj = {}
         obj.$value = arg[i]
         obj.$index = i
+        obj.__id = id
       else
         obj = arg[i]
         obj.$index = i
+        obj.__id = id
       item[i] = obj
       i++
     item
 
+is_editing = (id) ->
+  Session.equals('is_editing-'+id, true)
+set_editing = (id, is_editing) ->
+  Session.set('is_editing-'+id, is_editing)
+set_path = (id, path) ->
+  Session.set('path-'+id, path)
 
+Template.inline_editor.helpers
+  is_editing: (sid) ->
+    if sid.index
+      is_editing(sid.id + sid.sid + sid.index)
+    else
+      is_editing(sid.id + sid.sid)
+  kadui: (a) ->
+    console.log this
+Template.__display_humans.events
+  'click .inlineedit': (e, t) ->
+    if e.currentTarget.dataset.index isnt '' and e.currentTarget.dataset.index isnt undefined and e.currentTarget.dataset.index isnt '0'
+      task = t.data._id._str + e.currentTarget.dataset.sid + e.currentTarget.dataset.index
+    else
+      task = t.data._id._str + e.currentTarget.dataset.sid
+    set_editing(task, true)
+    set_path(task, e.currentTarget.dataset.path)
+  'click .cancel': (e, t) ->
+    if e.currentTarget.dataset.index isnt '' and e.currentTarget.dataset.index isnt undefined and e.currentTarget.dataset.index isnt '0'
+      task = t.data._id._str + e.currentTarget.dataset.sid + e.currentTarget.dataset.index
+    else
+      task = t.data._id._str + e.currentTarget.dataset.sid
+    set_editing(task, false)
+  'click .submit': (e, t) ->
+    if e.currentTarget.dataset.index isnt '' and e.currentTarget.dataset.index isnt undefined and e.currentTarget.dataset.index isnt '0'
+      task = t.data._id._str + e.currentTarget.dataset.sid + e.currentTarget.dataset.index
+    else
+      task = t.data._id._str + e.currentTarget.dataset.sid
+    set_editing(task, false)
 
 
 ojts = (id) ->

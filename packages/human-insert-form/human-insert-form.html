@@ -60,7 +60,15 @@
 <template name="display_humans">
   <div class="man">
     {{#each humans}}
-    {{> __display_humans}}
+    {{>__display_humans}}
     <hr/>{{/each}}
   </div>
 </template>
+<template name="inline_editor">
+  {{#if is_editing this}}
+  {{> __form_element}}
+  {{else}}
+  {{> UI.elseBlock}}
+  {{/if}}
+</template>
+<template name="__form_element"><span>hello {{kadui}}</span></template>

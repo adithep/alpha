@@ -106,5 +106,21 @@ UI.body.helpers({
     a.setHours(0, -a.getTimezoneOffset(), 0, 0);
     b = a.toISOString().substring(0, 10);
     return b;
+  },
+  combine_sid: function(a, b) {
+    var obj, suk;
+    if (a._id) {
+      suk = a._id._str;
+    } else if (a.__id) {
+      suk = a.__id._str;
+    }
+    obj = {
+      'id': suk,
+      'sid': b
+    };
+    if (a.$index || a.$index === 0) {
+      obj.index = a.$index;
+    }
+    return obj;
   }
 });

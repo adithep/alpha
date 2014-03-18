@@ -197,23 +197,36 @@ htmlobj = (schema, html, path, fath) ->
           ht = ht + "</div></div>{{/if}}"
       when "array"
         if schema[index].array_values.value_type is "object"
-          ht = ht + "{{#if this.#{p}}}<div><span data-path='#{p}'>#{schema[index].placeholder}:</span> {{#each dude this.#{p}}}<div>"
+          ht = ht + "{{#if this.#{p}}}<div><span data-path='#{p}'>#{schema[index].placeholder}:</span> {{#each dude this.#{p} this._id}}<div>"
           f = p + ".{{$index}}"
           ht = htmlobj(schema[index].array_values.object_keys, ht, false, f)
           ht = ht + "</div>{{/each}}</div>"
           ht = ht + "{{/if}}"
         else
           if schema[index].placeholder
-            ht = ht + "{{#if this.#{p}}}<span data-path='#{p}'>#{schema[index].placeholder}: </span> <ul> {{#each dude this.#{p}}} <li> <a class='inlineedit' data-path='#{p}.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}"
+            ht = ht +
+            """{{#if this.#{p}}}
+            <span data-path='#{p}'>#{schema[index].placeholder}: </span>
+            <ul> {{#each dude this.#{p} this._id}}
+            <li> {{#inline_editor combine_sid this '#{schema[index]._sid._str}'}} editing content
+            {{else}}
+            <a class='inlineedit' data-index='{{$index}}' data-path='#{p}.{{$index}}' data-sid='#{schema[index]._sid._str}'> {{this.$value}}</a>
+            {{/inline_editor}} </li>
+            {{/each}}</ul> {{/if}}"""
 
       else
         if schema[index].placeholder
           if fath
-            ht = ht + "{{#if this.#{p}}}<span>#{schema[index].placeholder}: <a class='inlineedit' data-path='#{dim}'> {{this.#{p}}}</a></span>{{/if}}"
-          else if truth
-            ht = ht + "{{#if this.#{p}}}<div><span>#{schema[index].placeholder}: <a class='inlineedit' data-path='#{p}'> {{this.#{p}}}</a></span></div>{{/if}}"
+            kabush = dim
           else
-            ht = ht + "{{#if this.#{p}}}<span>#{schema[index].placeholder}: <a class='inlineedit' data-path='#{p}'> {{this.#{p}}}</a></span>{{/if}}"
+            kabush = p
+          ht = ht +
+          """{{#if this.#{p}}}
+          <span>#{schema[index].placeholder}: {{#inline_editor combine_sid this '#{schema[index]._sid._str}'}} editing content
+          {{else}}
+          <a class='inlineedit' data-index='{{$index}}' data-path='#{kabush}' data-sid='#{schema[index]._sid._str}'> {{this.#{p}}}</a>
+          {{/inline_editor}}
+          </span>{{/if}}"""
     index++
   ht
 
@@ -247,8 +260,7 @@ Meteor.startup ->
     doc_json.insert_json('humans', 'humans')
 
   if fs.existsSync('../../../../../../packages/core-layout/schema.html')
-
-    html = fs.readFileSync('../../../../../../packages/core-layout/schema.html', 'utf8')
+    console.log "hello"
 
   else
     human_schema = DATA.findOne(doc_name: "humans", doc_schema: "doc_schema")

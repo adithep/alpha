@@ -1,4 +1,4 @@
-var CITIES, HUMAN_FORM, ojts, pargs;
+var CITIES, HUMAN_FORM, is_editing, ojts, pargs, set_editing;
 
 HUMAN_FORM = new Meteor.Collection(null, {
   idGeneration: "MONGO"
@@ -390,7 +390,7 @@ Template.display_humans.helpers({
       });
     }
   },
-  dude: function(arg) {
+  dude: function(arg, id) {
     var i, item, obj;
     i = 0;
     item = [];
@@ -399,14 +399,67 @@ Template.display_humans.helpers({
         obj = {};
         obj.$value = arg[i];
         obj.$index = i;
+        obj.__id = id;
       } else {
         obj = arg[i];
         obj.$index = i;
+        obj.__id = id;
       }
       item[i] = obj;
       i++;
     }
     return item;
+  }
+});
+
+is_editing = function(id) {
+  return Session.equals('is_editing-' + id, true);
+};
+
+set_editing = function(id, is_editing) {
+  return Session.set('is_editing-' + id, is_editing);
+};
+
+Template.inline_editor.helpers({
+  is_editing: function(sid) {
+    if (sid.index) {
+      return is_editing(sid.id + sid.sid + sid.index);
+    } else {
+      return is_editing(sid.id + sid.sid);
+    }
+  },
+  kadui: function(a) {
+    return console.log(this);
+  }
+});
+
+Template.__display_humans.events({
+  'click .inlineedit': function(e, t) {
+    var task;
+    if (e.currentTarget.dataset.index !== '' && e.currentTarget.dataset.index !== void 0 && e.currentTarget.dataset.index !== '0') {
+      task = t.data._id._str + e.currentTarget.dataset.sid + e.currentTarget.dataset.index;
+    } else {
+      task = t.data._id._str + e.currentTarget.dataset.sid;
+    }
+    return set_editing(task, true);
+  },
+  'click .cancel': function(e, t) {
+    var task;
+    if (e.currentTarget.dataset.index !== '' && e.currentTarget.dataset.index !== void 0 && e.currentTarget.dataset.index !== '0') {
+      task = t.data._id._str + e.currentTarget.dataset.sid + e.currentTarget.dataset.index;
+    } else {
+      task = t.data._id._str + e.currentTarget.dataset.sid;
+    }
+    return set_editing(task, false);
+  },
+  'click .submit': function(e, t) {
+    var task;
+    if (e.currentTarget.dataset.index !== '' && e.currentTarget.dataset.index !== void 0 && e.currentTarget.dataset.index !== '0') {
+      task = t.data._id._str + e.currentTarget.dataset.sid + e.currentTarget.dataset.index;
+    } else {
+      task = t.data._id._str + e.currentTarget.dataset.sid;
+    }
+    return set_editing(task, false);
   }
 });
 

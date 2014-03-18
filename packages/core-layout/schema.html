@@ -1,1 +1,93 @@
-<template name='__display_humans'>{{#if this.full_name}}<div><span data-path='full_name'>Full Name</span><div>{{#if this.full_name.titles}}<span>Titles: <a class='inlineedit' data-path='full_name.titles'> {{this.full_name.titles}}</a></span>{{/if}}{{#if this.full_name.first_name}}<span>First Name: <a class='inlineedit' data-path='full_name.first_name'> {{this.full_name.first_name}}</a></span>{{/if}}{{#if this.full_name.middle_name}}<span>Middle Name: <a class='inlineedit' data-path='full_name.middle_name'> {{this.full_name.middle_name}}</a></span>{{/if}}{{#if this.full_name.last_name}}<span>Last Name: <a class='inlineedit' data-path='full_name.last_name'> {{this.full_name.last_name}}</a></span>{{/if}}</div></div>{{/if}}{{#if this.email}}<div><span data-path='email'>Email</span><div>{{#if this.email.main}}<span data-path='email.main'>Main: </span> <ul> {{#each dude this.email.main}} <li> <a class='inlineedit' data-path='email.main.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}{{#if this.email.personal}}<span data-path='email.personal'>Personal: </span> <ul> {{#each dude this.email.personal}} <li> <a class='inlineedit' data-path='email.personal.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}{{#if this.email.work}}<span data-path='email.work'>Work: </span> <ul> {{#each dude this.email.work}} <li> <a class='inlineedit' data-path='email.work.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}</div></div>{{/if}}{{#if this.mobile}}<div><span data-path='mobile'>Mobile</span><div>{{#if this.mobile.main}}<span data-path='mobile.main'>Main: </span> <ul> {{#each dude this.mobile.main}} <li> <a class='inlineedit' data-path='mobile.main.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}{{#if this.mobile.personal}}<span data-path='mobile.personal'>Personal: </span> <ul> {{#each dude this.mobile.personal}} <li> <a class='inlineedit' data-path='mobile.personal.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}{{#if this.mobile.work}}<span data-path='mobile.work'>Work: </span> <ul> {{#each dude this.mobile.work}} <li> <a class='inlineedit' data-path='mobile.work.{{$index}}'> {{this.$value}}</a> </li>{{/each}}</ul> {{/if}}</div></div>{{/if}}{{#if this.service}}<div><span data-path='service'>Service:</span> {{#each dude this.service}}<div>{{#if this.date_of_entry}}<span>Date: <a class='inlineedit' data-path='service.{{$index}}.date_of_entry'> {{this.date_of_entry}}</a></span>{{/if}}{{#if this.service}}<span>Service: <a class='inlineedit' data-path='service.{{$index}}.service'> {{this.service}}</a></span>{{/if}}{{#if this.currency}}<span>Currecny: <a class='inlineedit' data-path='service.{{$index}}.currency'> {{this.currency}}</a></span>{{/if}}{{#if this.cost}}<span>Cost: <a class='inlineedit' data-path='service.{{$index}}.cost'> {{this.cost}}</a></span>{{/if}}</div>{{/each}}</div>{{/if}}{{#if this.date_of_birth}}<div><span>Date of Birth: <a class='inlineedit' data-path='date_of_birth'> {{this.date_of_birth}}</a></span></div>{{/if}}{{#if this.city}}<div><span>City: <a class='inlineedit' data-path='city'> {{this.city}}</a></span></div>{{/if}}</template>
+<template name='__display_humans'>{{#if this.full_name}}<div><span data-path='full_name'>Full Name</span><div>{{#if this.full_name.titles}}
+<span>Titles: {{#inline_editor combine_sid this 'c4efa0eb9fd36cb2a1b6b459'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='full_name.titles' data-sid='c4efa0eb9fd36cb2a1b6b459'> {{this.full_name.titles}}</a>
+{{/inline_editor}}
+</span>{{/if}}{{#if this.full_name.first_name}}
+<span>First Name: {{#inline_editor combine_sid this 'd987876705a2c2f331334be7'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='full_name.first_name' data-sid='d987876705a2c2f331334be7'> {{this.full_name.first_name}}</a>
+{{/inline_editor}}
+</span>{{/if}}{{#if this.full_name.middle_name}}
+<span>Middle Name: {{#inline_editor combine_sid this 'c822138ef4770272b45beb82'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='full_name.middle_name' data-sid='c822138ef4770272b45beb82'> {{this.full_name.middle_name}}</a>
+{{/inline_editor}}
+</span>{{/if}}{{#if this.full_name.last_name}}
+<span>Last Name: {{#inline_editor combine_sid this '0f9b261530b23796eefbe711'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='full_name.last_name' data-sid='0f9b261530b23796eefbe711'> {{this.full_name.last_name}}</a>
+{{/inline_editor}}
+</span>{{/if}}</div></div>{{/if}}{{#if this.email}}<div><span data-path='email'>Email</span><div>{{#if this.email.main}}
+<span data-path='email.main'>Main: </span>
+<ul> {{#each dude this.email.main this._id}}
+<li> {{#inline_editor combine_sid this '54387bbc5a730ff5c02630f1'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='email.main.{{$index}}' data-sid='54387bbc5a730ff5c02630f1'> {{this.$value}}</a>
+{{/inline_editor}} </li>
+{{/each}}</ul> {{/if}}{{#if this.email.personal}}
+<span data-path='email.personal'>Personal: </span>
+<ul> {{#each dude this.email.personal this._id}}
+<li> {{#inline_editor combine_sid this 'debdc47cae2f200c03bfaf55'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='email.personal.{{$index}}' data-sid='debdc47cae2f200c03bfaf55'> {{this.$value}}</a>
+{{/inline_editor}} </li>
+{{/each}}</ul> {{/if}}{{#if this.email.work}}
+<span data-path='email.work'>Work: </span>
+<ul> {{#each dude this.email.work this._id}}
+<li> {{#inline_editor combine_sid this 'd233019a22343dfdcf7ab7b2'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='email.work.{{$index}}' data-sid='d233019a22343dfdcf7ab7b2'> {{this.$value}}</a>
+{{/inline_editor}} </li>
+{{/each}}</ul> {{/if}}</div></div>{{/if}}{{#if this.mobile}}<div><span data-path='mobile'>Mobile</span><div>{{#if this.mobile.main}}
+<span data-path='mobile.main'>Main: </span>
+<ul> {{#each dude this.mobile.main this._id}}
+<li> {{#inline_editor combine_sid this '8ffc0da15f2e89fba96ea0e5'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='mobile.main.{{$index}}' data-sid='8ffc0da15f2e89fba96ea0e5'> {{this.$value}}</a>
+{{/inline_editor}} </li>
+{{/each}}</ul> {{/if}}{{#if this.mobile.personal}}
+<span data-path='mobile.personal'>Personal: </span>
+<ul> {{#each dude this.mobile.personal this._id}}
+<li> {{#inline_editor combine_sid this 'ec3603003dce6762e27676fa'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='mobile.personal.{{$index}}' data-sid='ec3603003dce6762e27676fa'> {{this.$value}}</a>
+{{/inline_editor}} </li>
+{{/each}}</ul> {{/if}}{{#if this.mobile.work}}
+<span data-path='mobile.work'>Work: </span>
+<ul> {{#each dude this.mobile.work this._id}}
+<li> {{#inline_editor combine_sid this '5d9073fd8b91ec0be56b606f'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='mobile.work.{{$index}}' data-sid='5d9073fd8b91ec0be56b606f'> {{this.$value}}</a>
+{{/inline_editor}} </li>
+{{/each}}</ul> {{/if}}</div></div>{{/if}}{{#if this.service}}<div><span data-path='service'>Service:</span> {{#each dude this.service this._id}}<div>{{#if this.date_of_entry}}
+<span>Date: {{#inline_editor combine_sid this 'df68d4830388613b809efa7c'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='service.{{$index}}.date_of_entry' data-sid='df68d4830388613b809efa7c'> {{this.date_of_entry}}</a>
+{{/inline_editor}}
+</span>{{/if}}{{#if this.service}}
+<span>Service: {{#inline_editor combine_sid this 'bb865d2060c265115ed4533d'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='service.{{$index}}.service' data-sid='bb865d2060c265115ed4533d'> {{this.service}}</a>
+{{/inline_editor}}
+</span>{{/if}}{{#if this.currency}}
+<span>Currecny: {{#inline_editor combine_sid this '536fc0f153fc5b3f4d7eb84e'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='service.{{$index}}.currency' data-sid='536fc0f153fc5b3f4d7eb84e'> {{this.currency}}</a>
+{{/inline_editor}}
+</span>{{/if}}{{#if this.cost}}
+<span>Cost: {{#inline_editor combine_sid this '603e467a8ca7dfcdadfc8808'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='service.{{$index}}.cost' data-sid='603e467a8ca7dfcdadfc8808'> {{this.cost}}</a>
+{{/inline_editor}}
+</span>{{/if}}</div>{{/each}}</div>{{/if}}{{#if this.date_of_birth}}
+<span>Date of Birth: {{#inline_editor combine_sid this '1302d1e8895a0a7145c67c5e'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='date_of_birth' data-sid='1302d1e8895a0a7145c67c5e'> {{this.date_of_birth}}</a>
+{{/inline_editor}}
+</span>{{/if}}{{#if this.city}}
+<span>City: {{#inline_editor combine_sid this 'a34ef538697f646386c33ab4'}} editing content
+{{else}}
+<a class='inlineedit' data-index='{{$index}}' data-path='city' data-sid='a34ef538697f646386c33ab4'> {{this.city}}</a>
+{{/inline_editor}}
+</span>{{/if}}</template>

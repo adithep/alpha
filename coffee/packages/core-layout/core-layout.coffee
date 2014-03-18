@@ -74,5 +74,15 @@ UI.body.helpers
     a.setHours(0, -a.getTimezoneOffset(), 0, 0)
     b = a.toISOString().substring(0, 10)
     b
+  combine_sid: (a, b) ->
+    if a._id
+      suk = a._id._str
+    else if a.__id
+      suk = a.__id._str
+
+    obj = {'id': suk, 'sid': b}
+    if a.$index or a.$index is 0
+      obj.index = a.$index
+    obj
 
 

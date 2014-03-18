@@ -23,6 +23,7 @@
       "path": "../packages/mongo-aggregation"
     },
     "collection-hooks": {},
-    "repeat-component": {}
+    "repeat-component": {},
+    "jade": {}
   }
 }
